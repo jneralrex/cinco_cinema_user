@@ -6,18 +6,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       {/* Public Routes */}
-      <Route
-        path="signup"
-        element={
-            <SignUp />
-        }
-      />
-      <Route
-        path="sign-in"
-        element={
-            <SignIn />
-        }
-      />
+      <Route path="signup" element={<SignUp />} />
+      <Route path="sign-in" element={<SignIn />} />
       <Route path="*" element={<Navigate to="/sign-in" />} />
     </Route>
   ))
