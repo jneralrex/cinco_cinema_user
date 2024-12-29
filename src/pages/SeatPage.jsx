@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import SeatCountModal from '../pages/SeatCountModal';
 
 const SeatPage = () => {
+  const [showModal, setShowModal] = useState(true);
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const [maxSeats, setMaxSeats] = useState(0);
+  const [showSeating, setShowSeating] = useState(false);
 
   const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
   
@@ -23,9 +27,15 @@ const SeatPage = () => {
       if (prev.includes(seatId)) {
         return prev.filter(seat => seat !== seatId);
       }
-      if (prev.length >= 3) return prev;
+      if (prev.length >= maxSeats) return prev;
       return [...prev, seatId];
     });
+  };
+
+  const handleSelectSeats = (count) => {
+    setMaxSeats(count);
+    setShowModal(false);
+    setShowSeating(true);
   };
 
   const getSeatStatus = (seatId) => {
@@ -34,8 +44,18 @@ const SeatPage = () => {
     return 'bg-white border-green-500 hover:bg-green-50';
   };
 
+  if (!showSeating) {
+    return (
+      <SeatCountModal 
+        isOpen={showModal} 
+        onClose={() => setShowModal(false)}
+        onSelectSeats={handleSelectSeats}
+      />
+    );
+  }
+
   return (
-    <div className="max-w-3xl mx-auto p-5">
+    <div className="max-w-7xl mx-auto p-5">
       {/* Header */}
       <div className="flex justify-between items-center border-b border-gray-200 pb-4 mb-5">
         <div>
@@ -43,8 +63,13 @@ const SeatPage = () => {
           <p className="text-sm text-gray-600">INOX: Megaplex, Inorbit Mall, Malad | Today, 29 Dec, 10:30 PM</p>
         </div>
         <div className="flex items-center gap-2">
-          <span>3 Tickets</span>
-          <button className="border border-gray-300 rounded p-1 hover:bg-gray-50">✎</button>
+          <span>{maxSeats} Tickets</span>
+          <button 
+            className="border border-gray-300 rounded p-1 hover:bg-gray-50"
+            onClick={() => setShowModal(true)}
+          >
+            ✎
+          </button>
         </div>
       </div>
 
@@ -54,7 +79,7 @@ const SeatPage = () => {
       </div>
 
       {/* Seating Layout */}
-      <div className="flex flex-col gap-3 my-8">
+      <div className="flex flex-col items-center gap-3 my-8">
         {rows.map(row => (
           <div key={row} className="flex items-center gap-3">
             <div className="w-8 text-center font-bold">{row}</div>

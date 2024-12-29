@@ -11,6 +11,7 @@ import Nav from "./component/Nav";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import SeatPage from "./pages/SeatPage";
+import SeatCountModal from "./pages/SeatCountModal";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       </Route>
 
         <Route path="seat-page" element={<SeatPage />} />
+        <Route path="seatCountModal-page" element={<SeatCountModal />} />
 
       <Route path="*" element={<Navigate to="/sign-in" />} />
     </Route>
