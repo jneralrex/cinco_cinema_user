@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import SeatCountModal from '../pages/SeatCountModal';
+import TermsModal from '../pages/TermsModal';
+import { useNavigate } from 'react-router-dom';
 
 const SeatPage = () => {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(true);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [maxSeats, setMaxSeats] = useState(0);
   const [showSeating, setShowSeating] = useState(false);
+  const [showTermsModal, setShowTermsModal] = useState(false);
 
   const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
   
@@ -19,6 +23,10 @@ const SeatPage = () => {
     'C-3': 'sold',
     'C-4': 'sold',
   };
+
+  const PRICE_PER_SEAT = 540;
+
+  const totalAmount = selectedSeats.length * PRICE_PER_SEAT;
 
   const handleSeatClick = (seatId) => {
     if (seatStatus[seatId] === 'sold') return;
@@ -42,6 +50,20 @@ const SeatPage = () => {
     if (seatStatus[seatId] === 'sold') return 'bg-gray-200 border-gray-300 cursor-not-allowed text-gray-500';
     if (selectedSeats.includes(seatId)) return 'bg-green-500 border-green-500 text-white';
     return 'bg-white border-green-500 hover:bg-green-50';
+  };
+
+  const handlePaymentClick = () => {
+    setShowTermsModal(true);
+  };
+
+  const handleTermsAccept = () => {
+    setShowTermsModal(false);
+    navigate('/booking-summary', { 
+      state: { 
+        selectedSeats,
+        totalAmount: selectedSeats.length * PRICE_PER_SEAT 
+      }
+    });
   };
 
   if (!showSeating) {
@@ -105,6 +127,25 @@ const SeatPage = () => {
         <div className="h-2 bg-gradient-to-b from-white to-blue-100 rounded-full mx-auto w-4/5 mb-3 shadow-md"></div>
         <p className="text-sm text-gray-600">All eyes this way please!</p>
       </div>
+
+      {/* Payment Button */}
+      {selectedSeats.length > 0 && (
+        <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
+          <button 
+            className="w-full bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors"
+            onClick={handlePaymentClick}
+          >
+            Pay Rs.{totalAmount}
+          </button>
+        </div>
+      )}
+
+      {/* Terms Modal */}
+      <TermsModal 
+        isOpen={showTermsModal}
+        onClose={() => setShowTermsModal(false)}
+        onAccept={handleTermsAccept}
+      />
 
       {/* Legend */}
       <div className="flex justify-center gap-6 mt-5">

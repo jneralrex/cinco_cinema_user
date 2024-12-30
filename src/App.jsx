@@ -12,6 +12,9 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import SeatPage from "./pages/SeatPage";
 import SeatCountModal from "./pages/SeatCountModal";
+import TermsModal from "./pages/TermsModal";
+import BookingSummary from "./pages/BookingSummary";
+import Checkout from "./pages/Checkout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +31,9 @@ const router = createBrowserRouter(
 
         <Route path="seat-page" element={<SeatPage />} />
         <Route path="seatCountModal-page" element={<SeatCountModal />} />
+        <Route path="termsModal-page" element={<TermsModal />} />
+        <Route path="booking-summary" element={<BookingSummary />} />
+        <Route path="checkout" element={<Checkout />} />
 
       <Route path="*" element={<Navigate to="/sign-in" />} />
     </Route>
