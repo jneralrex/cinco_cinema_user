@@ -31,19 +31,19 @@ const BookingSummary = () => {
   const [isConsentChecked, setIsConsentChecked] = useState(false);
   const [ticketType, setTicketType] = useState('m-ticket');
 
-  // If no state is passed, redirect back to seats page
-  if (!location.state) {
+  // Enhanced validation for required state data
+  if (!location.state?.selectedSeats || !location.state?.movieDetails) {
     navigate('/seats');
     return null;
   }
 
-  const { selectedSeats } = location.state;
+  const { selectedSeats, movieDetails, ticketPrice = 400 } = location.state;
   
-  // Calculate prices
-  const basePrice = 1600.00;
-  const convenienceFee = 188.80;
+  // Calculate prices based on actual selected seats
+  const basePrice = selectedSeats.length * ticketPrice;
+  const convenienceFee = Math.round((basePrice * 0.118) * 100) / 100; // 11.8% convenience fee
   const subTotal = basePrice + convenienceFee;
-  const totalPayable = 1788.80;
+  const totalPayable = subTotal;
 
   const handleProceed = () => {
     if (!isConsentChecked) {
@@ -53,16 +53,8 @@ const BookingSummary = () => {
 
     navigate('/checkout', {
       state: {
-        selectedSeats: ['PRP10', 'F11', 'F12', 'F13'],
-        movieDetails: {
-          title: 'Mufasa: The Lion King (3D) (U)',
-          language: 'English',
-          format: '2D',
-          theater: 'PVR: Citi Mall, Andheri (W) (SCREEN 4)',
-          date: 'Mon, 30 Dec, 2024',
-          time: '09:45 PM',
-          screen: 'SCREEN 4',
-        },
+        selectedSeats,
+        movieDetails,
         basePrice,
         convenienceFee,
         totalPayable,
@@ -229,7 +221,9 @@ const BookingSummary = () => {
             <div className="space-y-4">
               <div className="flex justify-between items-start">
                 <div>
-                  <p className="text-sm">PRP10,F11,F12,F13 (4 Tickets)</p>
+                  <p className="text-sm">
+                    {selectedSeats.join(',')} ({selectedSeats.length} Tickets)
+                  </p>
                   <p className="text-xs text-gray-500">SCREEN 4</p>
                 </div>
                 <p className="text-sm">Rs. {basePrice.toFixed(2)}</p>

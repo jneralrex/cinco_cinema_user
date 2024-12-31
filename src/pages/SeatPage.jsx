@@ -28,6 +28,16 @@ const SeatPage = () => {
 
   const totalAmount = selectedSeats.length * PRICE_PER_SEAT;
 
+  const movieDetails = {
+    title: 'Mufasa: The Lion King',
+    language: 'English',
+    format: 'INSIGNIA',
+    theater: 'INOX: Megaplex, Inorbit Mall, Malad',
+    date: '29 Dec',
+    time: '10:30 PM',
+    screen: 'INSIGNIA'
+  };
+
   const handleSeatClick = (seatId) => {
     if (seatStatus[seatId] === 'sold') return;
     
@@ -61,6 +71,8 @@ const SeatPage = () => {
     navigate('/booking-summary', { 
       state: { 
         selectedSeats,
+        movieDetails,
+        ticketPrice: PRICE_PER_SEAT,
         totalAmount: selectedSeats.length * PRICE_PER_SEAT 
       }
     });

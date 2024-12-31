@@ -58,7 +58,7 @@ const Checkout = () => {
                 <div className="flex gap-2">
                   <input
                     type="text"
-                    value="+91"
+                    value="+234"
                     disabled
                     className="w-16 p-3 border rounded bg-gray-50"
                   />
@@ -260,9 +260,7 @@ const Checkout = () => {
                 <span className="text-sm font-medium">Rs. {Number(totalPayable).toFixed(2)}</span>
               </div>
 
-              <div className="text-xs text-gray-500 text-right">
-                Your IP Address: 102.91.92.177
-              </div>
+        
             </div>
           </div>
         </div>
