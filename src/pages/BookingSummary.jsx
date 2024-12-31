@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const FoodItem = ({ image, name, description, price, onAdd }) => (
@@ -28,7 +28,9 @@ const FoodItem = ({ image, name, description, price, onAdd }) => (
 const BookingSummary = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  
+  const [isConsentChecked, setIsConsentChecked] = useState(false);
+  const [ticketType, setTicketType] = useState('m-ticket');
+
   // If no state is passed, redirect back to seats page
   if (!location.state) {
     navigate('/seats');
@@ -36,19 +38,37 @@ const BookingSummary = () => {
   }
 
   const { selectedSeats } = location.state;
-  const basePrice = 760.00;
-  const convenienceFee = 89.68;
-  const totalPayable = 849.68;
+  
+  // Calculate prices
+  const basePrice = 1600.00;
+  const convenienceFee = 188.80;
+  const subTotal = basePrice + convenienceFee;
+  const totalPayable = 1788.80;
 
-  const movieDetails = {
-    title: 'Mufasa: The Lion King (3D) (U)',
-    language: 'English',
-    format: '2D',
-    theater: 'PVR: Citi Mall, Andheri (W) (SCREEN 3)',
-    date: 'Mon, 30 Dec, 2024',
-    time: '09:45 PM',
-    screen: 'SCREEN 3',
-    ticketId: 'PRP1LP11'
+  const handleProceed = () => {
+    if (!isConsentChecked) {
+      alert('Please accept the terms to proceed');
+      return;
+    }
+
+    navigate('/checkout', {
+      state: {
+        selectedSeats: ['PRP10', 'F11', 'F12', 'F13'],
+        movieDetails: {
+          title: 'Mufasa: The Lion King (3D) (U)',
+          language: 'English',
+          format: '2D',
+          theater: 'PVR: Citi Mall, Andheri (W) (SCREEN 4)',
+          date: 'Mon, 30 Dec, 2024',
+          time: '09:45 PM',
+          screen: 'SCREEN 4',
+        },
+        basePrice,
+        convenienceFee,
+        totalPayable,
+        ticketType
+      }
+    });
   };
 
   const foodItems = [
@@ -124,18 +144,6 @@ const BookingSummary = () => {
     },
     // Add more items as needed
   ];
-
-  const handleProceed = () => {
-    navigate('/checkout', {
-      state: {
-        selectedSeats,
-        movieDetails,
-        basePrice,
-        convenienceFee,
-        totalPayable
-      }
-    });
-  };
 
   return (
     <div className="max-w-7xl mx-auto p-5">
@@ -215,39 +223,124 @@ const BookingSummary = () => {
 
           {/* Booking Summary Section */}
           <div className="bg-white rounded-lg shadow p-6">
-            <h2 className="text-lg font-semibold mb-4 text-red-300">BOOKING SUMMARY</h2>
+            <h2 className="text-sm font-medium text-gray-700 mb-4">BOOKING SUMMARY</h2>
             
             {/* Ticket Details */}
             <div className="space-y-4">
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-start">
                 <div>
-                  <p>{selectedSeats.join(', ')} ({selectedSeats.length} Tickets)</p>
-                  <p className="text-sm text-gray-500">{movieDetails.screen}</p>
+                  <p className="text-sm">PRP10,F11,F12,F13 (4 Tickets)</p>
+                  <p className="text-xs text-gray-500">SCREEN 4</p>
                 </div>
-                <p className="font-medium">Rs. {basePrice.toFixed(2)}</p>
+                <p className="text-sm">Rs. {basePrice.toFixed(2)}</p>
               </div>
 
               {/* Convenience Fee */}
               <div className="flex justify-between items-center">
-                <div className="flex items-center">
-                  <span>Convenience fees</span>
+                <div className="flex items-center gap-1">
+                  <span className="text-sm">Convenience fees</span>
                 </div>
-                <p className="font-medium">Rs. {convenienceFee.toFixed(2)}</p>
+                <p className="text-sm">Rs. {convenienceFee.toFixed(2)}</p>
+              </div>
+
+              {/* Sub Total */}
+              <div className="flex justify-between items-center pt-2 border-t">
+                <span className="text-sm">Sub total</span>
+                <span className="text-sm">Rs. {subTotal.toFixed(2)}</span>
+              </div>
+
+              {/* Donation Section */}
+              <div className="bg-gray-50 p-4 rounded">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-pink-500">★</span>
+                      <span className="text-sm">Donate to BookAChange</span>
+                    </div>
+                    <div className="text-[10px] text-gray-500">
+                      (₹1 per ticket has been added)
+                    </div>
+                    <div className="text-[10px] text-pink-500 cursor-pointer">
+                      View T&C
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm">Rs. 0</div>
+                    <div className="text-[10px] text-pink-500 cursor-pointer">Add Rs. 4</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Location */}
+              <div className="text-xs text-gray-500">
+                Your current state is Maharashtra
               </div>
 
               {/* Amount Payable */}
-              <div className="bg-yellow-50 p-3 rounded-lg flex justify-between items-center">
-                <span className="font-medium">Amount Payable</span>
-                <span className="font-medium">Rs. {totalPayable.toFixed(2)}</span>
+              <div className="bg-yellow-50 p-3 rounded flex justify-between items-center">
+                <span className="text-sm font-medium">Amount Payable</span>
+                <span className="text-sm font-medium">Rs. {totalPayable.toFixed(2)}</span>
               </div>
 
-              <button
-                onClick={handleProceed}
-                className="w-full bg-pink-500 text-white py-3 rounded-lg flex justify-between items-center px-4"
-              >
-                <span>TOTAL Rs. {totalPayable.toFixed(2)}</span>
-                <span>Proceed</span>
-              </button>
+              {/* Ticket Type Selection */}
+              <div>
+                <p className="text-xs text-gray-600 mb-2">SELECT TICKET TYPE</p>
+                <div className="flex gap-4 mb-2">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input 
+                      type="radio" 
+                      name="ticketType" 
+                      value="m-ticket"
+                      checked={ticketType === 'm-ticket'}
+                      onChange={(e) => setTicketType(e.target.value)}
+                      className="text-pink-500" 
+                    />
+                    <span className="text-sm">M-Ticket</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input 
+                      type="radio" 
+                      name="ticketType" 
+                      value="box-office"
+                      checked={ticketType === 'box-office'}
+                      onChange={(e) => setTicketType(e.target.value)}
+                      className="text-pink-500" 
+                    />
+                    <span className="text-sm">Box Office Pickup</span>
+                  </label>
+                </div>
+                <p className="text-[10px] text-gray-500">
+                  Show the m-ticket QR Code on your mobile to enter the cinema.
+                </p>
+              </div>
+
+              {/* Terms and Proceed Button */}
+              <div className="space-y-4">
+                <div className="flex items-start gap-2">
+                  <input 
+                    type="checkbox" 
+                    className="mt-1"
+                    checked={isConsentChecked}
+                    onChange={(e) => setIsConsentChecked(e.target.checked)}
+                  />
+                  <p className="text-[10px] text-gray-600">
+                    By proceeding, I express my consent to complete this transaction.
+                  </p>
+                </div>
+
+                <button 
+                  onClick={handleProceed}
+                  className="w-full bg-pink-500 text-white py-3 rounded flex justify-between items-center px-4"
+                >
+                  <span>TOTAL: Rs {totalPayable.toFixed(2)}</span>
+                  <span>Proceed</span>
+                </button>
+
+                <p className="text-[10px] text-gray-500">
+                  You can cancel the tickets 20 min(s) before the show. Refunds will be done according to{' '}
+                  <span className="text-pink-500 cursor-pointer">Cancellation Policy</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
