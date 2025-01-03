@@ -26,18 +26,20 @@ const router = createBrowserRouter(
       {/* Public Routes */}
       <Route path="signup" element={<SignUp />} />
       <Route path="sign-in" element={<SignIn />} />
-    
-      <Route element={<Nav />}>
-        <Route path="home-page" element={<HomePage />} />
-        <Route path="about-page" element={<AboutPage/>} />
-     
-        <Route path="ProfilePage" element={<ProfilePage/>}/>
-        <Route path="MovieDetail" element={<MovieDetail/>}/>
-        <Route path="MovieDateTime" element={<MovieDateTime/>}/>
 
+      <Route path="profile-page" element={<ProfilePage/>}/>
+      <Route path="movie-detail" element={<MovieDetail/>}/>
+      <Route path="movie-date-time" element={<MovieDateTime/>}/>
+
+      <Route element={<Nav />}>
+      <Route path="home-page" element={<HomePage />} />
+        <Route path="about-page" element={<AboutPage/>} />
         <Route path="seat-page" element={<SeatPage />} />
-        <Route path="seatCountModal-page" element={<SeatCountModal />} />
-        <Route path="termsModal-page" element={<TermsModal />} />
+        <Route path="checkout" element={<Checkout />} />
+    
+        <Route path="seat-page" element={<SeatPage />} />
+        {/* <Route path="seatCountModal-page" element={<SeatCountModal />} /> */}
+        {/* <Route path="termsModal-page" element={<TermsModal />} /> */}
         <Route path="booking-summary" element={<BookingSummary />} />
         <Route path="checkout" element={<Checkout />} />
       </Route>
