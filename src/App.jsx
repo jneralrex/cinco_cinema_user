@@ -29,7 +29,7 @@ const router = createBrowserRouter(
     
       <Route element={<Nav />}>
         <Route path="home-page" element={<HomePage />} />
-        <Route path="about-page" element={<AboutPage />} />
+        <Route path="about-page" element={<AboutPage/>} />
      
         <Route path="ProfilePage" element={<ProfilePage/>}/>
         <Route path="MovieDetail" element={<MovieDetail/>}/>
