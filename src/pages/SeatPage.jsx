@@ -144,7 +144,7 @@ const SeatPage = () => {
       {selectedSeats.length > 0 && (
         <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
           <button 
-            className="w-1/4 text-center items-center justify-center mx-[500px] bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors"
+            className="w-1/4 text-center items-center justify-center mx-[170px] bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors md:mx-[300px] lg:mx-[500px]"
             onClick={handlePaymentClick}
           >
             Pay Rs.{totalAmount}
