@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import SignUp from "./auth/SignUp";
 import SignIn from "./auth/SignIn";
-import Nav from "./component/Nav";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import SeatPage from "./pages/SeatPage";
@@ -18,6 +17,7 @@ import Checkout from "./pages/Checkout";
 import ProfilePage from "./pages/ProfilePage";
 import MovieDetail from "./pages/MovieDetail";
 import MovieDateTime from "./pages/MovieDateTime";
+import Nav from "./component/Nav";
 
 
 const router = createBrowserRouter(
