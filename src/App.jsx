@@ -7,9 +7,18 @@ import {
 } from "react-router-dom";
 import SignUp from "./auth/SignUp";
 import SignIn from "./auth/SignIn";
+import Nav from "./component/Nav";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import SeatPage from "./pages/SeatPage";
+import SeatCountModal from "./pages/SeatCountModal";
+import TermsModal from "./pages/TermsModal";
+import BookingSummary from "./pages/BookingSummary";
+import Checkout from "./pages/Checkout";
 import ProfilePage from "./pages/ProfilePage";
 import MovieDetail from "./pages/MovieDetail";
 import MovieDateTime from "./pages/MovieDateTime";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,12 +27,15 @@ const router = createBrowserRouter(
       <Route path="signup" element={<SignUp />} />
       <Route path="sign-in" element={<SignIn />} />
 
-
-      <Route >
         <Route path="ProfilePage" element={<ProfilePage/>}/>
         <Route path="MovieDetail" element={<MovieDetail/>}/>
         <Route path="MovieDateTime" element={<MovieDateTime/>}/>
-      </Route>
+
+        <Route path="seat-page" element={<SeatPage />} />
+        <Route path="seatCountModal-page" element={<SeatCountModal />} />
+        <Route path="termsModal-page" element={<TermsModal />} />
+        <Route path="booking-summary" element={<BookingSummary />} />
+        <Route path="checkout" element={<Checkout />} />
 
       <Route path="*" element={<Navigate to="/sign-in" />} />
     </Route>
