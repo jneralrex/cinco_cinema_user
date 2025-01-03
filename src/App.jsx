@@ -7,9 +7,9 @@ import {
 } from "react-router-dom";
 import SignUp from "./auth/SignUp";
 import SignIn from "./auth/SignIn";
-import Nav from "./component/Nav";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
+import ProfilePage from "./pages/ProfilePage";
+import MovieDetail from "./pages/MovieDetail";
+import MovieDateTime from "./pages/MovieDateTime";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,9 +19,10 @@ const router = createBrowserRouter(
       <Route path="sign-in" element={<SignIn />} />
 
 
-      <Route element={<Nav />}>
-        <Route path="home-page" element={<HomePage />} />
-        <Route path="about-page" element={<AboutPage />} />
+      <Route >
+        <Route path="ProfilePage" element={<ProfilePage/>}/>
+        <Route path="MovieDetail" element={<MovieDetail/>}/>
+        <Route path="MovieDateTime" element={<MovieDateTime/>}/>
       </Route>
 
       <Route path="*" element={<Navigate to="/sign-in" />} />
