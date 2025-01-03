@@ -26,7 +26,11 @@ const router = createBrowserRouter(
       {/* Public Routes */}
       <Route path="signup" element={<SignUp />} />
       <Route path="sign-in" element={<SignIn />} />
-
+    
+      <Route element={<Nav />}>
+        <Route path="home-page" element={<HomePage />} />
+        <Route path="about-page" element={<AboutPage />} />
+     
         <Route path="ProfilePage" element={<ProfilePage/>}/>
         <Route path="MovieDetail" element={<MovieDetail/>}/>
         <Route path="MovieDateTime" element={<MovieDateTime/>}/>
@@ -36,6 +40,7 @@ const router = createBrowserRouter(
         <Route path="termsModal-page" element={<TermsModal />} />
         <Route path="booking-summary" element={<BookingSummary />} />
         <Route path="checkout" element={<Checkout />} />
+      </Route>
 
       <Route path="*" element={<Navigate to="/sign-in" />} />
     </Route>
