@@ -15,6 +15,10 @@ import SeatCountModal from "./pages/SeatCountModal";
 import TermsModal from "./pages/TermsModal";
 import BookingSummary from "./pages/BookingSummary";
 import Checkout from "./pages/Checkout";
+import ProfilePage from "./pages/ProfilePage";
+import MovieDetail from "./pages/MovieDetail";
+import MovieDateTime from "./pages/MovieDateTime";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,11 +27,9 @@ const router = createBrowserRouter(
       <Route path="signup" element={<SignUp />} />
       <Route path="sign-in" element={<SignIn />} />
 
-
-      <Route element={<Nav />}>
-        <Route path="home-page" element={<HomePage />} />
-        <Route path="about-page" element={<AboutPage />} />
-      </Route>
+        <Route path="ProfilePage" element={<ProfilePage/>}/>
+        <Route path="MovieDetail" element={<MovieDetail/>}/>
+        <Route path="MovieDateTime" element={<MovieDateTime/>}/>
 
         <Route path="seat-page" element={<SeatPage />} />
         <Route path="seatCountModal-page" element={<SeatCountModal />} />
