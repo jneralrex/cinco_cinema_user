@@ -18,6 +18,81 @@ import { FaLinkedinIn } from "react-icons/fa6";
 const ProfilePage = () => {
 
     const [showEdit, setShowEdit] = useState(false)
+
+    const[inputValue, setInputValue] = useState({
+        email:"",
+        phone:"",
+        first_name:"",
+        last_name:"",
+        birthday:"",
+        identity:"",
+        married:"",
+        area:"",
+        address1:"",
+        address2:"",
+        landmark:"",
+        town:"",
+    })
+    const[inputValueError, setInputValueError] = useState({
+        email:"",
+        phone:"",
+        first_name:"",
+        last_name:"",
+        birthday:"",
+        identity:"",
+        married:"",
+        area:"",
+        address1:"",
+        address2:"",
+        landmark:"",
+        town:"",
+    })
+
+    const validateEmail = (email) => {
+        return /\S+@\S+\.\S+/.test(email);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setInputValue((prevState) => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const formValidate = () => {
+        const newError = {};
+
+        if (inputValue.email === "") {
+            newError.email = "Email cannot be empty";
+        } else if (!validateEmail(inputValue.email)) {
+            newError.email = "Invalid email format";
+        }
+        
+        if (inputValue.phone === "") {
+            newError.phone = "Phone number cannot be empty";
+        } else if (isNaN(inputValue.phone)) {
+            newError.phone = "Phone number must be numeric";
+        }
+
+        if (inputValue.first_name === "") {
+            newError.first_name = "First name cannot be empty";
+        } else if (!isNaN(inputValue.first_name)) {
+            newError.first_name = "Invalid name (numbers not allowed)";
+        }
+
+        if (inputValue.last_name === "") {
+            newError.last_name = "Last name cannot be empty";
+        } else if (!isNaN(inputValue.last_name)) {
+            newError.last_name = "Invalid name (numbers not allowed)";
+        }
+
+        
+
+        setError(newError);
+
+        return Object.keys(newError).length === 0;
+    };
   return (
     <div >
         <div className='bg-gray-200 gap-3 pl-[170px] flex '>
@@ -141,13 +216,13 @@ const ProfilePage = () => {
                                  <input className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="date" />
                                  <select className='mb-[15px] px-3 py-2 border border-black rounded-lg' name="" id="">
                                     <option value="">Select Identity</option>
-                                    <option value="">Woman</option>
-                                    <option value="">Man</option>
+                                    <option value="Woman">Woman</option>
+                                    <option value="Man">Man</option>
                                  </select>
                                  <select className='mb-[15px] px-3 py-2 border border-black rounded-lg' name="" id="">
                                     <option value="">Select Status</option>
-                                    <option value="">Yes</option>
-                                    <option value="">No</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
                                  </select>
                              </div>
                          </div>  
