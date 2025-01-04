@@ -32,7 +32,7 @@ const Nav = () => {
     <div>
       <nav className=' fixed top-0 left-0 right-0 z-50 bg-white shadow shadow-purple-800 flex items-center justify-between xl:px-36 lg:px-[50px] px-5 py-2'>
         <div className='flex items-center gap-5'>
-          <Link to={'/home-page'}>
+          <Link to={'/'}>
             <img className='md:size-[60px] size-[40px]' src="/images/cinco-logo.png" alt="logo" />
           </Link>
           <div className='hidden border md:flex items-center gap-2 px-2'>

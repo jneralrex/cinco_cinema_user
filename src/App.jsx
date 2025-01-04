@@ -18,32 +18,31 @@ import ProfilePage from "./pages/ProfilePage";
 import MovieDetail from "./pages/MovieDetail";
 import MovieDateTime from "./pages/MovieDateTime";
 import Nav from "./component/Nav";
+import NotFound from "./component/NotFound";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       {/* Public Routes */}
-      <Route path="signup" element={<SignUp />} />
-      <Route path="sign-in" element={<SignIn />} />
+     
 
-      <Route path="profile-page" element={<ProfilePage />} />
 
       <Route element={<Nav />}>
-        <Route path="home-page" element={<HomePage />} />
+        <Route index element={<HomePage />} />
         <Route path="movie-detail" element={<MovieDetail />} />
         <Route path="movie-date-time" element={<MovieDateTime />} />
         <Route path="seat-page" element={<SeatPage />} />
         <Route path="about-page" element={<AboutPage />} />
         <Route path="checkout" element={<Checkout />} />
+        <Route path="profile-page" element={<ProfilePage />} />
+
 
         <Route path="seat-page" element={<SeatPage />} />
-        {/* <Route path="seatCountModal-page" element={<SeatCountModal />} /> */}
-        {/* <Route path="termsModal-page" element={<TermsModal />} /> */}
         <Route path="booking-summary" element={<BookingSummary />} />
         <Route path="checkout" element={<Checkout />} />
       </Route>
 
-      <Route path="*" element={<Navigate to="/sign-in" />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
