@@ -113,7 +113,7 @@ const Nav = () => {
               <FaUserLarge className='size-[75%] text-gray-400 rounded-full' />
             </div>
             <div>
-              <p>Hi, Gues</p>
+              <p>Hi, Guest</p>
             </div>
           </div>
           {/* sign up/in */}

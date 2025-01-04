@@ -16,14 +16,7 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { BiLike } from "react-icons/bi";
 import { AiOutlineDislike } from "react-icons/ai";
-
-
-
-
-
-
-
-
+import { Link } from 'react-router-dom';
 
 const MovieDetail = () => {
   return (
@@ -76,9 +69,11 @@ const MovieDetail = () => {
                         <p className='text-white mt-6 font-semibold text-[18px]' >2h 9m . <span className='hover:underline cursor-pointer'>Action,</span> <span className='hover:underline cursor-pointer'>Adventure,</span> <span className='hover:underline cursor-pointer'>Sci-Fi</span> . A . 1 Jan 2025</p>
                    </div>
 
-                   <div className='bg-red-500 rounded-md text-center text-white w-[180px] py-3 cursor-pointer mt-[50px]'>
+                 <Link to='/movie-date-time'>
+                 <div className='bg-red-500 rounded-md text-center text-white w-[180px] py-3 cursor-pointer mt-[50px]'>
                         <p>Book tickets</p>
                    </div>
+                 </Link> 
                 </div>
             </div>  
         </div>

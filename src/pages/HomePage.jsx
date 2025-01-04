@@ -1,6 +1,7 @@
 import React from 'react'
 import Slider from '../component/swiper'
 import { IoPlayCircle } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
@@ -13,15 +14,17 @@ const HomePage = () => {
       <div className='xl:w-[80%] w-[90%] mx-auto mb-10'>
         <h1 className='lg:text-[26px] text-lg md:text-xl font-bold mb-2'>Recommended Movies</h1>
         <div className='lg:grid lg:grid-cols-5 flex overflow-x-scroll lg:overflow-hidden xl:gap-8 gap-3'>
+          <Link to='/movie-detail'>
           <div>
-            <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
-              <img src="/images/sonic-thumb.avif" alt="" className='rounded h-full' />
+            <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px]  md:h-[230px] lg:w-full md:w-[150px]'>
+              <img src="images/kraven-thumb.avif" alt="" className='rounded h-full' />
             </div>
             <div>
-              <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Sonic the Hedgehog</h1>
-              <p className='text-gray-500 hidden md:block md:text-sm line-clamp-1'>Action/Thriller</p>
+              <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Kraven: The Hunter</h1>
+              <p className='text-gray-500 hidden md:block md:text-sm line-clamp-1'>Action/Adventure</p>
             </div>
           </div>
+          </Link>
           <div className=''>
             <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px]  md:h-[230px] lg:w-full md:w-[150px]'>
               <img src="/images/mufasa-thumb.avif" alt="" className='rounded h-full' />
@@ -32,12 +35,12 @@ const HomePage = () => {
             </div>
           </div>
           <div>
-            <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px]  md:h-[230px] lg:w-full md:w-[150px]'>
-              <img src="images/kraven-thumb.avif" alt="" className='rounded h-full' />
+            <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
+              <img src="/images/sonic-thumb.avif" alt="" className='rounded h-full' />
             </div>
             <div>
-              <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Kraven: The Hunter</h1>
-              <p className='text-gray-500 hidden md:block md:text-sm line-clamp-1'>Action/Adventure</p>
+              <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Sonic the Hedgehog</h1>
+              <p className='text-gray-500 hidden md:block md:text-sm line-clamp-1'>Action/Thriller</p>
             </div>
           </div>
           <div>
