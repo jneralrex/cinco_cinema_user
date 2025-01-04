@@ -19,7 +19,7 @@ function Slider() {
       <SwiperSlide>
         <div className='relative md:h-[400px] flex justify-center items-center text-4xl text-white'>
             <img src="/images/mufasa.jpg" alt="slide 1" className='size-full ' />
-            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-black/70 px-64 p-10'>
+            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-black/70 xl:px-64 p-10'>
                 <img src="/images/mufasa.jpg" alt="slide 1" className='hidden md:block size-full rounded-lg' />
             </div>
         </div>
@@ -27,7 +27,7 @@ function Slider() {
       <SwiperSlide>
         <div className='relative md:h-[400px] flex justify-center items-center text-4xl text-white'>
             <img src="/images/gladiator.jpg" alt="slide 1" className='size-full' />
-            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-white/20 px-64 p-10'>
+            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-white/20 xl:px-64 p-10'>
                 <img src="/images/gladiator.jpg" alt="slide 1" className='hidden md:block size-full rounded-lg' />
             </div>
         </div>
@@ -35,7 +35,7 @@ function Slider() {
       <SwiperSlide>
         <div className='relative md:h-[400px] flex justify-center items-center text-4xl text-white'>
             <img src="/images/identity.jpg" alt="slide 1" className='size-full' />
-            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-black/70 px-64 p-10'>
+            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-black/70 xl:px-64 p-10'>
                 <img src="/images/identity.jpg" alt="slide 1" className='hidden md:block size-full rounded-xl' />
             </div>
         </div>
@@ -43,7 +43,7 @@ function Slider() {
       <SwiperSlide>
         <div className='relative md:h-[400px] flex justify-center items-center text-4xl text-white'>
             <img src="/images/sonic.jpg" alt="slide 1" className='size-full' />
-            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-white/10 px-64 p-10'>
+            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-white/10 xl:px-64 p-10'>
                 <img src="/images/sonic.jpg" alt="slide 1" className='hidden md:block size-full rounded-lg' />
             </div>
         </div>
@@ -51,7 +51,7 @@ function Slider() {
       <SwiperSlide>
         <div className='relative md:h-[400px] flex justify-center items-center text-4xl text-white'>
             <img src="/images/broker.jpg" alt="slide 1" className='size-full' />
-            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-black/70 px-64 p-10'>
+            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-black/70 xl:px-64 p-10'>
                 <img src="/images/broker.jpg" alt="slide 1" className='hidden md:block size-full rounded-lg' />
             </div>
         </div>
@@ -59,7 +59,7 @@ function Slider() {
       <SwiperSlide>
         <div className='relative md:h-[400px] flex justify-center items-center text-4xl text-white'>
             <img src="/images/marco.jpg" alt="slide 1" className='size-full' />
-            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-black/70 px-64 p-10'>
+            <div className=' absolute top-0 bottom-0 right-0 left-0 md:bg-black/70 xl:px-64 p-10'>
                 <img src="/images/marco.jpg" alt="slide 1" className='hidden md:block size-full rounded-lg' />
             </div>
         </div>
