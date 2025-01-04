@@ -86,12 +86,56 @@ const ProfilePage = () => {
         } else if (!isNaN(inputValue.last_name)) {
             newError.last_name = "Invalid name (numbers not allowed)";
         }
-
-        
-
-        setError(newError);
-
+        if (inputValue.birthday === "") {
+            newError.birthday = "birthday cannot be empty";
+        }
+        if (inputValue.identity === "") {
+            newError.identity = "identity cannot be empty";
+        }
+        if (inputValue.married === "") {
+            newError.married = "married cannot be empty";
+        }
+        if (inputValue.area === "") {
+            newError.area = "area cannot be empty";
+        }
+        if (inputValue.address1 === "") {
+            newError.address1 = "address cannot be empty";
+        }
+        if (inputValue.address2 === "") {
+            newError.address2 = "address cannot be empty";
+        }
+        if (inputValue.landmark === "") {
+            newError.landmark = "landmark cannot be empty";
+        }
+        if (inputValue.town === "") {
+            newError.town = "town/city cannot be empty";
+        }
+        setInputValueError(newError);
         return Object.keys(newError).length === 0;
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        if (formValidate()) {
+            try {         
+                // const res = await axios.post(`${base_url}/users`, inputValue);
+                // if (res.status !== 200){
+                //   throw new Error("Error posting user details");
+                // }
+                // if(res.data.code === 304){
+                //   throw new Error("Email Already Exist");
+                // }
+                // window.location.href="/login"
+                // console.log('Form submitted', res.data);
+                alert('Form Editted Successful');
+                window.location.reload();
+            } catch (error) {
+                console.error(error.message);
+            }
+        } else {
+            console.log('Form validation failed');
+        }
     };
   return (
     <div >
@@ -178,7 +222,7 @@ const ProfilePage = () => {
         {    
                 showEdit && (
              <div className='show bg-gray-100 pt-4'>
-             <form className='w-[700px]  justify-center items-center ml-[400px] relative '>
+             <form onSubmit={handleSubmit} className='w-[700px]  justify-center items-center ml-[400px] relative '>
                      <div className='relative bg-gradient-to-l from-red-400 to-black h-[100px] flex rounded-t-md'>
                          <div className='absolute gap-5 flex top-7 left-9'>
                              <div className='rounded-full h-[100px] w-[100px] bg-white '> 
@@ -195,8 +239,14 @@ const ProfilePage = () => {
                                  <p>Mobile Number</p>
                              </div>
                              <div className='flex flex-col'>
-                                <input className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Enter Email Address'/>
-                                <input className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Enter Mobile Number'/>
+                                <div>
+                                    <input name='email' value={inputValue.email} className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Enter Email Address' onChange={handleChange}/>
+                                    {inputValueError.email&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.email}</p>}
+                                </div>
+                                <div>
+                                    <input name='phone' value={inputValue.phone} className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Enter Mobile Number' onChange={handleChange}/>
+                                    {inputValueError.phone&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.phone}</p>}
+                                </div>
                              </div>
                          </div>
                      </div>
@@ -211,19 +261,34 @@ const ProfilePage = () => {
                                  <p className='mb-[15px]'>Married</p>
                              </div>
                              <div className='flex flex-col'>
-                                 <input className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Enter First Name here'/>
-                                 <input className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Enter Last Name here'/>
-                                 <input className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="date" />
-                                 <select className='mb-[15px] px-3 py-2 border border-black rounded-lg' name="" id="">
-                                    <option value="">Select Identity</option>
-                                    <option value="Woman">Woman</option>
-                                    <option value="Man">Man</option>
-                                 </select>
-                                 <select className='mb-[15px] px-3 py-2 border border-black rounded-lg' name="" id="">
-                                    <option value="">Select Status</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                 </select>
+                                <div>
+                                    <input name='first_name' value={inputValue.first_name} className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Enter First Name here' onChange={handleChange}/>
+                                    {inputValueError.first_name&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.first_name}</p>}
+                                </div>
+                                <div>
+                                    <input name='last_name' value={inputValue.last_name} className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Enter Last Name here' onChange={handleChange}/>
+                                    {inputValueError.last_name&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.last_name}</p>}
+                                </div>
+                                <div>
+                                    <input name='birthday' value={inputValue.birthday} className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="date" onChange={handleChange}/>
+                                    {inputValueError.birthday&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.birthday}</p>}
+                                </div>
+                                <div>
+                                    <select  className='mb-[15px] px-3 py-2 border border-black rounded-lg' name="identity" value={inputValue.identity} id="" onChange={handleChange}>
+                                        <option value="">Select Identity</option>
+                                        <option value="Woman">Woman</option>
+                                        <option value="Man">Man</option>
+                                    </select>
+                                    {inputValueError.identity&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.identity}</p>}
+                                </div>
+                                <div>
+                                    <select className='mb-[15px] px-3 py-2 border border-black rounded-lg' name="married" value={inputValueError.married} id="" onChange={handleChange}>
+                                        <option value="">Select Status</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    {inputValueError.married&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.married}</p>}
+                                </div>
                              </div>
                          </div>  
                      </div>
@@ -238,11 +303,26 @@ const ProfilePage = () => {
                                  <p className='mb-[15px]'>Town/City</p>
                              </div>
                              <div className='flex flex-col'>
-                                 <input className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Eg 508765'/>
-                                 <input className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Flat no, House no,Building'/>
-                                 <input className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Area, Colony, Street'/>
-                                 <input className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Eg Utt theater'/>
-                                 <input className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Mumbai'/>
+                                <div>
+                                    <input name='area' value={inputValue.area} className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Eg 508765' onChange={handleChange}/>
+                                    {inputValueError.area&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.area}</p>}
+                                </div>
+                                <div>
+                                    <input name='address1' value={inputValue.address1} className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Flat no, House no,Building' onChange={handleChange}/>
+                                    {inputValueError.address1&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.address1}</p>}
+                                </div>
+                                <div>
+                                    <input name='address2' value={inputValue.address2} className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Area, Colony, Street' onChange={handleChange}/>
+                                    {inputValueError.address2&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.address2}</p>}
+                                </div>
+                                <div>
+                                    <input name='landmark' value={inputValue.landmark} className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Eg Utt theater' onChange={handleChange}/>
+                                    {inputValueError.landmark&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.landmark}</p>}
+                                </div>
+                                <div>
+                                    <input name='town' value={inputValue.town} className='mb-[15px] px-3 py-2 border border-black rounded-lg' type="text" placeholder='Mumbai' onChange={handleChange}/>
+                                    {inputValueError.town&& <p className='text-red-700 text-[9px] absolute mt-[-14px]'>{inputValueError.town}</p>}
+                                </div>
                              </div>
                          </div>  
                         <button className='bg-gradient-to-l from-red-400 to-black rounded-md px-2 text-[13px] text-white absolute right-[100px] bottom-[80px]'>SUBMIT</button>
