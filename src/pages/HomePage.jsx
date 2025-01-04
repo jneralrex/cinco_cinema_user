@@ -1,14 +1,14 @@
 import React from 'react'
-import Slider from '../component/swiper'
 import { IoPlayCircle } from "react-icons/io5";
 import { Link } from 'react-router-dom';
+import Swipper from '../component/Swipper';
 
 const HomePage = () => {
   return (
     <div className=''>
       <div className='mt-16 lg:my-10 mb-5 md:mt-24'>
         <div className='xl:w-[80%] lg:w-[90%] mx-auto'>
-          <Slider />
+          <Swipper/>
         </div>
       </div>
       <div className='xl:w-[80%] w-[90%] mx-auto mb-10'>

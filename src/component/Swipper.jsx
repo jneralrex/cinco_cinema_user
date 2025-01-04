@@ -2,7 +2,7 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
-function Slider() {
+function Swipper() {
   return (
     <Swiper
       spaceBetween={30} // Space between slides
@@ -68,4 +68,4 @@ function Slider() {
   );
 }
 
-export default Slider;
+export default Swipper;
