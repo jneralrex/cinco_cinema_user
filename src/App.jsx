@@ -19,7 +19,6 @@ import MovieDetail from "./pages/MovieDetail";
 import MovieDateTime from "./pages/MovieDateTime";
 import Nav from "./component/Nav";
 
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -27,16 +26,16 @@ const router = createBrowserRouter(
       <Route path="signup" element={<SignUp />} />
       <Route path="sign-in" element={<SignIn />} />
 
-      <Route path="profile-page" element={<ProfilePage/>}/>
-      <Route path="movie-detail" element={<MovieDetail/>}/>
-      <Route path="movie-date-time" element={<MovieDateTime/>}/>
+      <Route path="profile-page" element={<ProfilePage />} />
 
       <Route element={<Nav />}>
-      <Route path="home-page" element={<HomePage />} />
-        <Route path="about-page" element={<AboutPage/>} />
+        <Route path="home-page" element={<HomePage />} />
+        <Route path="movie-detail" element={<MovieDetail />} />
+        <Route path="movie-date-time" element={<MovieDateTime />} />
         <Route path="seat-page" element={<SeatPage />} />
+        <Route path="about-page" element={<AboutPage />} />
         <Route path="checkout" element={<Checkout />} />
-    
+
         <Route path="seat-page" element={<SeatPage />} />
         {/* <Route path="seatCountModal-page" element={<SeatCountModal />} /> */}
         {/* <Route path="termsModal-page" element={<TermsModal />} /> */}

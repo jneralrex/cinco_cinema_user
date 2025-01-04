@@ -18,11 +18,7 @@ import { FaInstagram } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { IoLogoYoutube } from "react-icons/io5";
 import { FaLinkedinIn } from "react-icons/fa6";
-
-
-
-
-
+import { Link } from 'react-router-dom';
 
 const MovieDateTime = () => {
   return (
@@ -147,10 +143,12 @@ const MovieDateTime = () => {
                                 </div>
                                 <div>
                                     <div className='flex gap-4 mt-2'>
+                                        <Link to='/seat-page'>
                                         <div className='border border-gray-300 rounded-lg text-[11px] py-1 px-5'>
                                             <p className='text-green-400'>11:45 AM</p>
                                             <p className='text-gray-300'>DOLBY 7.1</p>
                                         </div>
+                                        </Link>
                                         <div className='border border-gray-300 rounded-lg text-[11px] py-1 px-5'>
                                             <p className='text-green-400'>5:25 PM</p>
                                             <p className='text-gray-300'>DOLBY 7.1</p>
