@@ -17,6 +17,7 @@ import { GoGift } from "react-icons/go";
 import { AiFillFacebook } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
+import Footer from './Footer';
 
 const Nav = () => {
   const [location, setLocation]=useState('Pick your location')
@@ -327,6 +328,7 @@ const Nav = () => {
         </div>
       </div>
       <Outlet/>
+      <Footer/>
     </div>
   
   )
