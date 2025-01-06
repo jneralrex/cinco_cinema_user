@@ -4,15 +4,6 @@ import { IoMdPlay } from "react-icons/io";
 import { AiFillLike } from "react-icons/ai";
 import { BsChevronRight } from "react-icons/bs";
 import { IoIosStar } from "react-icons/io";
-import { FcCustomerSupport } from "react-icons/fc";
-import { LuTicketsPlane } from "react-icons/lu";
-import { IoIosMailOpen } from "react-icons/io";
-import { FaFacebook } from "react-icons/fa";
-import { FaPinterestP } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import { BsTwitterX } from "react-icons/bs";
-import { IoLogoYoutube } from "react-icons/io5";
-import { FaLinkedinIn } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { BiLike } from "react-icons/bi";
 import { AiOutlineDislike } from "react-icons/ai";
@@ -22,15 +13,15 @@ const MovieDetail = () => {
   return (
     <div>
         <div className="bg-[url('https://images.unsplash.com/photo-1696366167309-23f52e79409f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWUlMjBjb3ZlcnxlbnwwfHwwfHx8MA%3D%3D')] relative  bg-cover bg-center h-[500px] w-full">
-            <div className="flex absolute inset-0 bg-gradient-to-r from-black to-transparent px-[150px] py-[30px] gap-[50px]">       
-                <div className='bg-gray-700 px-[5px] py-1 w-[130px] flex gap-3 rounded-lg absolute right-[130px] top-[30px]'>
-                    <CiShare2 className='right-[80px]' color='white' size={45}/>
-                    <p className='text-white font-semibold text-[20px] mt-[10px]'>Share</p>
+            <div className="md:px-[50px] lg:px-[50px] xl:px-[150px] xl:flex xl:flex-row flex flex-col absolute inset-0 bg-gradient-to-r from-black to-transparent px-[10px] py-[10px] gap-[50px]">       
+                <div className='bg-gray-700 px-[5px] py-1 xl:w-[130px] flex h-[27px] gap-2 rounded-lg xl:h-[60px] absolute  bottom-2 xl:right-[130px] xl:top-[30px]'>
+                    <CiShare2 className='right-[80px] xl:h-[50px] xl:w-[90px] h-[20px] w-[20px]' color='white' />
+                    <p className='text-white font-semibold  xl:text-[20px] text-[12px] xl:mt-[10px]'>Share</p>
                 </div>
                 <div className='relative'>
-                    <img className='h-[400px] rounded-lg ' src="https://images.unsplash.com/photo-1696366167309-23f52e79409f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWUlMjBjb3ZlcnxlbnwwfHwwfHx8MA%3D%3D" alt="" />
+                    <img className='h-[250px] mt-[120px] ml-[70px] xl:mt-4 xl:ml-0 rounded-lg  md:h-[350px] lg:h-[370px] xl:h-[400px]' src="https://images.unsplash.com/photo-1696366167309-23f52e79409f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWUlMjBjb3ZlcnxlbnwwfHwwfHx8MA%3D%3D" alt="" />
                     <div className='bg-black text-white font-semibold px-6 w-[265px] text-center text-[11px] py-1'>In cinemas</div>
-                    <div className='absolute top-[200px] left-[100px] bg-gray-700 rounded-full px-2 cursor-pointer'>
+                    <div className='absolute xl:top-[200px] left-[100px] top-[230px] bg-gray-700 rounded-full px-2 cursor-pointer'>
                         <p className=' text-white flex items-center text-[13px] '><IoMdPlay/> Trailers (5)</p>
                     </div>
                 </div>
@@ -282,45 +273,7 @@ const MovieDetail = () => {
             </div>
         </div>
 
-         <div className='bg-black text-white'>
-                    <div className='flex bg-black text-white pl-[170px] py-[20px] relative'>
-                        <div className='flex gap-4'>
-                            <img src="https://in.bmscdn.com/webin/common/icons/hut.svg" alt="" />
-                            <p className='font-semibold mt-2'> <span className='text-white font-bold'>List your shows</span>   Got a show,event,activity or a great experience? patner with us and get listed on CINCO</p>
-                        </div>
-                        <div className='px-2 py-2 rounded-lg bg-red-400 text-white right-[200px] absolute'>Contact today!</div>
-                    </div>
-                    <div className='px-[230px] flex justify-between bg-gray-800 py-4'>
-                        <div className='cursor-pointer'>
-                            <FcCustomerSupport  size={50} className='ml-[25px]'/>
-                            <p className='text-[12px]'>24/7 Customer Care</p>
-                        </div>
-                        <div className='cursor-pointer'>
-                            <LuTicketsPlane  size={50} className='ml-[45px]'/>
-                            <p className='text-[12px]'>Resend Booking Confirmation</p>
-                        </div>
-                        <div className='cursor-pointer'>
-                            <IoIosMailOpen  size={50} className='ml-[45px]'/>
-                            <p className='text-[12px]'>Subscribe To The Newsletter </p>
-                        </div>
-                    </div>
-                    <div className='bg-black text-gray-200 px-[170px] py-[20px]'>
-                            <p className='mb-3 text-gray-500'>Upcoming Movies  </p>
-                            <p className='text-[10px] text-gray-500 mb-8'>The Dark Knight | Avengers: Endgame | Mad Max: Fury Road | John Wick: Chapter 4 | Inception | The Grand Budapest Hotel | Superbad | Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan | The Hangover | Dumb and Dumber | Forrest Gump | The Shawshank Redemption | The Godfather | Parasite | 12 Years a Slave | Blade Runner 2049 | Interstellar | The Matrix | Dune | Star Wars: Episode V - The Empire Strikes Back | Toy Story | Spider-Man: Into the Spider-Verse | Finding Nemo | The Lion King | Frozen | Get Out | The Exorcist | Hereditary | A Quiet Place | It | The Notebook | Titanic | Pride and Prejudice | La La Land | Crazy Rich Asians</p>
-                            <p className='mb-3 text-gray-500'>Movies Now Showing</p>
-                            <p className='text-[10px] text-gray-500 mb-8'>Inception | The Dark Knight | Avengers: Endgame | Forrest Gump | The Godfather | Toy Story | The Shawshank Redemption | Spider-Man: Into the Spider-Verse | Titanic | Get Out</p>
-                            <div className='flex gap-4 items-center justify-center mt-4'>
-                                <FaFacebook  size={30} className='cursor-pointer'/>
-                                <FaPinterestP  size={30} className='cursor-pointer'/>
-                                <FaInstagram  size={30} className='cursor-pointer'/>
-                                <BsTwitterX  size={30} className='cursor-pointer'/>
-                                <IoLogoYoutube  size={30} className='cursor-pointer'/>
-                                <FaLinkedinIn  size={30} className='cursor-pointer'/>
-                            </div>
-                            <p className='text-center text-gray-500 text-[10px] mt-4'>© 2025 CINCO. All rights reserved.
-                            This content is protected by copyright laws. Unauthorized use, reproduction, or distribution is prohibited.</p>
-                    </div>
-                </div>
+        
     </div>
   )
 }
