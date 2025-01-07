@@ -37,7 +37,7 @@ const Checkout = () => {
   const [cvv, setCvv] = useState('');
 
   return (
-    <div className="max-w-7xl mx-auto p-5">
+    <div className="w-full  p-5">
       <div className="flex gap-6 flex-col-reverse md:flex-row">
         {/* Left Section - Contact Details & Payment */}
         <div className="flex-1 space-y-4">
@@ -60,7 +60,6 @@ const Checkout = () => {
                   <div className="p-3 hover:bg-gray-50 cursor-pointer">Redeem Points</div>
                 </div>
               </div>
-
               {/* Card Details Form */}
               <div className="flex-1 p-6">
                 <h3 className="mb-4">Enter your Card details</h3>
