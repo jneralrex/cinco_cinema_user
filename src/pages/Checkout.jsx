@@ -45,7 +45,7 @@ const Checkout = () => {
          
           {/* Payment Options Section */}
           <div className="bg-white rounded-lg shadow">
-            <div className="bg-pink-500 text-white p-4">
+            <div className="bg-purple-500 text-white p-4">
               <span>Payment options</span>
             </div>
             <div className="flex">
@@ -116,7 +116,7 @@ const Checkout = () => {
                     </div>
                   </div>
                 </div>
-                <button className="w-full bg-pink-500 text-white py-3 rounded mt-4">
+                <button className="w-full bg-purple-500 text-white py-3 rounded mt-4">
                   MAKE PAYMENT
                 </button>
                 <p className="text-xs text-gray-500 mt-2">
@@ -136,7 +136,7 @@ const Checkout = () => {
            {/* Contact Details Section */}
 
           <div className="bg-white rounded-lg shadow">
-            <div className="bg-pink-500 text-white p-4 flex items-center gap-2">
+            <div className="bg-purple-500 text-white p-4 flex items-center gap-2">
               <span>Share your Contact Details</span>
             </div>
             <div className="p-4 space-y-4">
@@ -163,9 +163,9 @@ const Checkout = () => {
                     className="flex-1 p-3 border rounded focus:outline-none focus:border-pink-500"
                   />
                 </div>
-                <p className="text-xs text-red-500 mt-1">Please enter a valid mobile number.</p>
+                <p className="text-xs text-purple-500 mt-1">Please enter a valid mobile number.</p>
               </div>
-              <button className="bg-pink-500 text-white px-6 py-2 rounded">
+              <button className="bg-purple-500 text-white px-6 py-2 rounded">
                 Continue
               </button>
             </div>
@@ -226,7 +226,7 @@ const Checkout = () => {
                 <div className="flex justify-between items-center mt-2">
                   <div className="flex items-center gap-1">
                     <span className="text-sm">+ Convenience fees</span>
-                    <span className="text-xs text-pink-500 cursor-pointer">Show fee breakup</span>
+                    <span className="text-xs text-purple-500 cursor-pointer">Show fee breakup</span>
                   </div>
                   <span className="text-sm">Rs. {Number(convenienceFee).toFixed(2)}</span>
                 </div>
@@ -237,19 +237,19 @@ const Checkout = () => {
                 <div className="flex justify-between items-start">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-pink-500">★</span>
+                      <span className="text-purple-500">★</span>
                       <span className="text-sm">Donate to BookAChange</span>
                     </div>
                     <div className="text-[10px] text-gray-500">
                       (₹1 per ticket will be added)
                     </div>
-                    <div className="text-[10px] text-pink-500 cursor-pointer">
+                    <div className="text-[10px] text-purple-500 cursor-pointer">
                       View T&C
                     </div>
                   </div>
                   <div className="text-right">
                     <div className="text-sm">Rs. 0</div>
-                    <div className="text-[10px] text-pink-500 cursor-pointer">
+                    <div className="text-[10px] text-purple-500 cursor-pointer">
                       Add Rs. {selectedSeats.length}
                     </div>
                   </div>

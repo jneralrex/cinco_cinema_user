@@ -5,7 +5,7 @@ const FoodItem = ({ image, name, description, price, onAdd }) => (
   <div className="bg-white p-4 rounded-2xl shadow-md">
     <div className="flex flex-col h-full">
       <div className="flex items-start gap-2 mb-2">
-        <span className="text-green-600 text-lg">✓</span>
+        <span className="text-purple-600 text-lg">✓</span>
         <img src={image} alt={name} className="w-16 h-16 object-contain" />
       </div>
       <div className="flex-1">
@@ -16,7 +16,7 @@ const FoodItem = ({ image, name, description, price, onAdd }) => (
         <span className="font-medium">₹{price}</span>
         <button 
           onClick={onAdd}
-          className="border border-pink-500 text-pink-500 px-4 py-1 rounded-sm text-sm hover:bg-pink-50"
+          className="border border-purple-500 text-purple-500 px-4 py-1 rounded-sm text-sm hover:bg-purple-50"
         >
           Add
         </button>
@@ -138,8 +138,6 @@ const BookingSummary = () => {
   ];
 
   return (
-    <div className="w-full overflow-x-hidden">
-
     <div className=" w-[90%] m-auto p-2">
       <div className="flex gap-6 flex-col-reverse md:flex-row">
         {/* Food Pre-booking Section */}
@@ -161,7 +159,7 @@ const BookingSummary = () => {
 
           {/* Categories */}
           <div className="flex gap-4 mb-6">
-            <button className="bg-pink-500 text-white px-4 py-2 rounded-sm">ALL</button>
+            <button className="bg-purple-500 text-white px-4 py-2 rounded-sm">ALL</button>
             <button className="text-gray-600 px-4 py-2">POPCORN</button>
             <button className="text-gray-600 px-4 py-2">BEVERAGES</button>
             <button className="text-gray-600 px-4 py-2">SNACKS</button>
@@ -242,19 +240,19 @@ const BookingSummary = () => {
                 <div className="flex justify-between items-start">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-pink-500">★</span>
+                      <span className="text-purple-500">★</span>
                       <span className="text-sm">Donate to BookAChange</span>
                     </div>
                     <div className="text-[10px] text-gray-500">
                       (₹1 per ticket has been added)
                     </div>
-                    <div className="text-[10px] text-pink-500 cursor-pointer">
+                    <div className="text-[10px] text-purple-500 cursor-pointer">
                       View T&C
                     </div>
                   </div>
                   <div className="text-right">
                     <div className="text-sm">Rs. 0</div>
-                    <div className="text-[10px] text-pink-500 cursor-pointer">Add Rs. 4</div>
+                    <div className="text-[10px] text-purple-500 cursor-pointer">Add Rs. 4</div>
                   </div>
                 </div>
               </div>
@@ -281,7 +279,7 @@ const BookingSummary = () => {
                       value="m-ticket"
                       checked={ticketType === 'm-ticket'}
                       onChange={(e) => setTicketType(e.target.value)}
-                      className="text-pink-500" 
+                      className="text-purple-500" 
                     />
                     <span className="text-sm">M-Ticket</span>
                   </label>
@@ -292,7 +290,7 @@ const BookingSummary = () => {
                       value="box-office"
                       checked={ticketType === 'box-office'}
                       onChange={(e) => setTicketType(e.target.value)}
-                      className="text-pink-500" 
+                      className="text-purple-500" 
                     />
                     <span className="text-sm">Box Office Pickup</span>
                   </label>
@@ -318,7 +316,7 @@ const BookingSummary = () => {
 
                 <button 
                   onClick={handleProceed}
-                  className="w-full bg-pink-500 text-white py-3 rounded flex justify-between items-center px-4"
+                  className="w-full bg-purple-500 text-white py-3 rounded flex justify-between items-center px-4"
                 >
                   <span>TOTAL: Rs {totalPayable.toFixed(2)}</span>
                   <span>Proceed</span>
@@ -326,7 +324,7 @@ const BookingSummary = () => {
 
                 <p className="text-[10px] text-gray-500">
                   You can cancel the tickets 20 min(s) before the show. Refunds will be done according to{' '}
-                  <span className="text-pink-500 cursor-pointer">Cancellation Policy</span>
+                  <span className="text-purple-500 cursor-pointer">Cancellation Policy</span>
                 </p>
               </div>
             </div>
@@ -334,8 +332,6 @@ const BookingSummary = () => {
         </div>
       </div>
     </div>
-    </div>
-
   );
 };
 

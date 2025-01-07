@@ -58,8 +58,8 @@ const SeatPage = () => {
 
   const getSeatStatus = (seatId) => {
     if (seatStatus[seatId] === 'sold') return 'bg-gray-200 border-gray-300 cursor-not-allowed text-gray-500';
-    if (selectedSeats.includes(seatId)) return 'bg-green-500 border-green-500 text-white';
-    return 'bg-white border-green-500 hover:bg-green-50';
+    if (selectedSeats.includes(seatId)) return 'bg-purple-500 border-purple-500 text-white';
+    return 'bg-white border-purple-500 hover:bg-purple-50';
   };
 
   const handlePaymentClick = () => {
@@ -144,7 +144,7 @@ const SeatPage = () => {
       {selectedSeats.length > 0 && (
        <div className="p-4 flex justify-center border-t border-gray-200 z-20">
        <button 
-         className="w-full max-w-xs mx-auto bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors"
+         className="w-full max-w-xs mx-auto bg-purple-500 text-white py-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors"
          onClick={handlePaymentClick}
        >
          Pay Rs.{totalAmount}
@@ -163,11 +163,11 @@ const SeatPage = () => {
       {/* Legend */}
       <div className="flex justify-center gap-6 mt-5">
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 border border-green-500 rounded"></div>
+          <div className="w-5 h-5 border border-purple-500 rounded"></div>
           <span className="text-sm">Available</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 bg-green-500 border border-green-500 rounded"></div>
+          <div className="w-5 h-5 bg-purple-500 border border-purple-500 rounded"></div>
           <span className="text-sm">Selected</span>
         </div>
         <div className="flex items-center gap-2">
