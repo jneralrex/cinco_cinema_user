@@ -89,7 +89,7 @@ const SeatPage = () => {
   }
 
   return (
-    <div className="w-full p-5">
+    <div className="w-[90%] mx-auto p-3">
       {/* Header */}
       <div className="flex justify-between items-center border-b border-gray-200 pb-4 mb-5">
         <div>
@@ -142,14 +142,15 @@ const SeatPage = () => {
 
       {/* Payment Button */}
       {selectedSeats.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
-          <button 
-            className="w-1/4 text-center items-center justify-center mx-[170px] bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors md:mx-[300px] lg:mx-[500px]"
-            onClick={handlePaymentClick}
-          >
-            Pay Rs.{totalAmount}
-          </button>
-        </div>
+       <div className="p-4 flex justify-center border-t border-gray-200 z-20">
+       <button 
+         className="w-full max-w-xs mx-auto bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors"
+         onClick={handlePaymentClick}
+       >
+         Pay Rs.{totalAmount}
+       </button>
+     </div>
+     
       )}
 
       {/* Terms Modal */}

@@ -5,9 +5,9 @@ const TermsModal = ({ isOpen, onClose, onAccept }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg max-w-lg w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-white rounded-lg w-[400px] max-h-[90vh] overflow-y-auto flex flex-col  items-center">
         {/* Header */}
-        <div className="flex justify-between items-center p-4 border-b">
+        <div className="flex justify-between items-center  w-full p-4 border-b">
           <h2 className="text-xl font-semibold">Terms & Conditions</h2>
           <button 
             onClick={onClose}
@@ -40,7 +40,7 @@ const TermsModal = ({ isOpen, onClose, onAccept }) => {
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t flex gap-4">
+        <div className="w-full p-4 border-t flex gap-4">
           <button
             onClick={onClose}
             className="flex-1 py-2 px-4 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"

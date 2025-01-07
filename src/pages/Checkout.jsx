@@ -37,7 +37,7 @@ const Checkout = () => {
   const [cvv, setCvv] = useState('');
 
   return (
-    <div className="w-full  p-5">
+    <div className="w-[90%] m-auto p-2">
       <div className="flex gap-6 flex-col-reverse md:flex-row">
         {/* Left Section - Contact Details & Payment */}
         <div className="flex-1 space-y-4">
