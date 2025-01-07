@@ -145,6 +145,7 @@ const BookingSummary = () => {
   ];
 
   return (
+
     <div className="lg:max-w-7xl mt-14 lg:mt-0 mx-auto p-5">
       <div className='shadow-xl z-10 fixed bottom-0 lg:hidden flex justify-end left-0 right-0 px-5 py-2'>
         <button onClick={scrollToSection} className=' size-14 text-sm leading-none rounded-full bg-purple-800 text-white shadow-lg'>Skip meal</button>
@@ -343,6 +344,8 @@ const BookingSummary = () => {
         </div>
       </div>
     </div>
+    </div>
+
   );
 };
 
