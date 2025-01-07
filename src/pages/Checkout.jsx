@@ -37,6 +37,7 @@ const Checkout = () => {
   const [cvv, setCvv] = useState('');
 
   return (
+    <div className="w-full overflow-x-hidden">
     <div className="w-[90%] m-auto p-2">
       <div className="flex gap-6 flex-col-reverse md:flex-row">
         {/* Left Section - Contact Details & Payment */}
@@ -266,6 +267,7 @@ const Checkout = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

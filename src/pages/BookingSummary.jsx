@@ -138,6 +138,8 @@ const BookingSummary = () => {
   ];
 
   return (
+    <div className="w-full overflow-x-hidden">
+
     <div className=" w-[90%] m-auto p-2">
       <div className="flex gap-6 flex-col-reverse md:flex-row">
         {/* Food Pre-booking Section */}
@@ -332,6 +334,8 @@ const BookingSummary = () => {
         </div>
       </div>
     </div>
+    </div>
+
   );
 };
 
