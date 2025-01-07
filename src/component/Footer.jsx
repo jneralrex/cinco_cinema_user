@@ -22,7 +22,7 @@ const Footer = () => {
             get listed on CINCO.
           </p>
         </div>
-        <div className="px-4 py-2 rounded-lg bg-red-400 text-white text-center md:absolute md:right-[200px]">
+        <div className="px-4 py-2 rounded-lg bg-purple-800 text-white text-center md:absolute md:right-[200px]">
           Contact today!
         </div>
       </div>
