@@ -96,8 +96,8 @@ const SeatPage = () => {
           <h2 className="text-xl font-semibold">Mufasa: The Lion King</h2>
           <p className="text-sm text-gray-600">INOX: Megaplex, Inorbit Mall, Malad | Today, 29 Dec, 10:30 PM</p>
         </div>
-        <div className="flex items-center gap-2">
-          <span>{maxSeats} Tickets</span>
+        <div className="flex items-center gap-2 flex-col md:flex-row">
+          <div>{maxSeats} Tickets</div>
           <button 
             className="border border-gray-300 rounded p-1 hover:bg-gray-50"
             onClick={() => setShowModal(true)}
@@ -115,9 +115,9 @@ const SeatPage = () => {
       {/* Seating Layout */}
       <div className="flex flex-col items-center gap-4 w-[90%] m-auto">
         {rows.map(row => (
-          <div key={row} className="flex flex-row items-center  justify-center">
+          <div key={row} className="flex flex-row items-center justify-center">
             <div className="w-8 text-center font-bold">{row}</div>
-            <div className="flex gap-3 flex-1">
+            <div className="flex gap-1 flex-1">
               {[1, 2, 3, 4, 5, 6, 7, 8].map(seatNum => (
                 <button
                   key={`${row}-${seatNum}`}
