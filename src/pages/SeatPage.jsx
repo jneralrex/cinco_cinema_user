@@ -89,17 +89,20 @@ const SeatPage = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto p-5">
+    <div className="lg:max-w-7xl  md:px-[100px] mt-14 md:mt-20 lg:mt-0 mx-auto p-5">
       {/* Header */}
       <div className="flex justify-between items-center border-b border-gray-200 pb-4 mb-5">
         <div>
           <h2 className="text-xl font-semibold">Mufasa: The Lion King</h2>
-          <p className="text-sm text-gray-600">INOX: Megaplex, Inorbit Mall, Malad | Today, 29 Dec, 10:30 PM</p>
+          <div className="text-xs lg:text-sm text-gray-600 block lg:flex items-center">
+            <p>INOX: Megaplex, Inorbit Mall, Malad</p> 
+            <p className='text-xs lg:text-sm'>| Today, 29 Dec, 10:30 PM</p>
+          </div>
         </div>
         <div className="flex items-center gap-2">
-          <span>{maxSeats} Tickets</span>
+          <span className='text-sm lg:text-[16px]'>{maxSeats} Tickets</span>
           <button 
-            className="border border-gray-300 rounded p-1 hover:bg-gray-50"
+            className="border border-gray-300 rounded px-1 hover:bg-gray-50"
             onClick={() => setShowModal(true)}
           >
             ✎
@@ -140,17 +143,6 @@ const SeatPage = () => {
         <p className="text-sm text-gray-600">All eyes this way please!</p>
       </div>
 
-      {/* Payment Button */}
-      {selectedSeats.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
-          <button 
-            className="w-1/4 text-center items-center justify-center mx-[170px] bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors md:mx-[300px] lg:mx-[500px]"
-            onClick={handlePaymentClick}
-          >
-            Pay Rs.{totalAmount}
-          </button>
-        </div>
-      )}
 
       {/* Terms Modal */}
       <TermsModal 
@@ -159,20 +151,33 @@ const SeatPage = () => {
         onAccept={handleTermsAccept}
       />
 
-      {/* Legend */}
-      <div className="flex justify-center gap-6 mt-5">
-        <div className="flex items-center gap-2">
-          <div className="w-5 h-5 border border-green-500 rounded"></div>
-          <span className="text-sm">Available</span>
+      <div className='fixed bottom-0 right-0 left-0 z-10'>
+        {/* Legend */}
+        <div className="flex justify-center gap-6 lg:mt-5 bg-white border-t py-4 lg:relative">
+          <div className="flex items-center gap-2">
+            <div className="w-5 h-5 border border-green-500 rounded"></div>
+            <span className="text-sm">Available</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-5 h-5 bg-green-500 border border-green-500 rounded"></div>
+            <span className="text-sm">Selected</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-5 h-5 bg-gray-200 border border-gray-300 rounded"></div>
+            <span className="text-sm">Sold</span>
+          </div>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="w-5 h-5 bg-green-500 border border-green-500 rounded"></div>
-          <span className="text-sm">Selected</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-5 h-5 bg-gray-200 border border-gray-300 rounded"></div>
-          <span className="text-sm">Sold</span>
-        </div>
+        {/* Payment Button */}
+        {selectedSeats.length > 0 && (
+          <div className="lg:fixed relative p-4 flex items-center justify-center bg-white border-t border-gray-200">
+            <button 
+              className="w-1/4 text-center items-center justify-center bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors md:mx-[300px]"
+              onClick={handlePaymentClick}
+            >
+              Pay Rs.{totalAmount}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
