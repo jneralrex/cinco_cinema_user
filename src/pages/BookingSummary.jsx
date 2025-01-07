@@ -145,15 +145,12 @@ const BookingSummary = () => {
   ];
 
   return (
+
     <div className="lg:max-w-7xl mt-14 lg:mt-0 mx-auto p-5">
       <div className='shadow-xl z-10 fixed bottom-0 lg:hidden flex justify-end left-0 right-0 px-5 py-2'>
         <button onClick={scrollToSection} className=' size-14 text-sm leading-none rounded-full bg-purple-800 text-white shadow-lg'>Skip meal</button>
       </div>
       <div className="lg:flex gap-6">
-    <div className="w-full overflow-x-hidden">
-
-    <div className=" w-[90%] m-auto p-2">
-      <div className="flex gap-6 flex-col-reverse md:flex-row">
         {/* Food Pre-booking Section */}
         <div className="flex-1">
           {/* Banner */}
@@ -218,7 +215,7 @@ const BookingSummary = () => {
 
         {/* Booking Summary Section */}
         <div className="lg:w-[400px]">
-
+        
           {/* Booking Summary Section */}
           <div className="bg-white rounded-lg shadow p-6">
             <h2 className="text-sm font-medium text-gray-700 mb-4">BOOKING SUMMARY</h2>
@@ -346,8 +343,6 @@ const BookingSummary = () => {
         </div>
       </div>
     </div>
-    </div>
-
   );
 };
 

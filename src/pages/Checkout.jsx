@@ -38,11 +38,6 @@ const Checkout = () => {
   const [cvv, setCvv] = useState('');
 
   return (
-<<<<<<< HEAD
-    <div className="w-full overflow-x-hidden">
-    <div className="w-[90%] m-auto p-2">
-      <div className="flex gap-6 flex-col-reverse md:flex-row">
-=======
     <div className="lg:max-w-7xl mt-14 md:mt-20 lg:mt-0 mx-auto p-5">
       {/* mobile view order summary */}
       <div className="mb-5 lg:hidden">
@@ -117,103 +112,10 @@ const Checkout = () => {
         </div>
       </div>
       <div className="lg:flex gap-6">
->>>>>>> 94ceabfe77e1dcb871510c5acf20aef2c7712b60
+
         {/* Left Section - Contact Details & Payment */}
         <div className="flex-1 space-y-4">
-         
-          {/* Payment Options Section */}
-          <div className="bg-white rounded-lg shadow">
-  <div className="bg-pink-500 text-white p-4">
-    <span>Payment options</span>
-  </div>
-  <div className="flex flex-col md:flex-row">
-    {/* Payment Methods */}
-    <div className="w-full md:w-1/3 border-b md:border-r">
-      <div className="py-2">
-        <div className="p-3 hover:bg-gray-50 cursor-pointer">QuikPay</div>
-        <div className="p-3 hover:bg-gray-50 cursor-pointer">Pay by any UPI App</div>
-        <div className="p-3 hover:bg-gray-50 cursor-pointer bg-gray-100">Debit/Credit Card</div>
-        <div className="p-3 hover:bg-gray-50 cursor-pointer">Net Banking</div>
-        <div className="p-3 hover:bg-gray-50 cursor-pointer">Mobile Wallets</div>
-        <div className="p-3 hover:bg-gray-50 cursor-pointer">Gift Voucher</div>
-        <div className="p-3 hover:bg-gray-50 cursor-pointer">Redeem Points</div>
-      </div>
-    </div>
-    {/* Card Details Form */}
-    <div className="flex-1 p-6">
-      <h3 className="mb-4 text-lg font-medium">Enter your Card details</h3>
-      <div className="bg-gray-100 p-6 rounded space-y-4">
-        <div>
-          <label className="text-sm text-gray-600">Card Number</label>
-          <input
-            type="text"
-            value={cardNumber}
-            onChange={(e) => setCardNumber(e.target.value)}
-            placeholder="Enter Your Card Number"
-            className="w-full p-2 border rounded mt-1"
-          />
-        </div>
-        <div>
-          <label className="text-sm text-gray-600">Name on the card</label>
-          <input
-            type="text"
-            value={cardName}
-            onChange={(e) => setCardName(e.target.value)}
-            className="w-full p-2 border rounded mt-1"
-          />
-        </div>
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex-1">
-            <label className="text-sm text-gray-600">Expiry</label>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                placeholder="MM"
-                value={expiryMonth}
-                onChange={(e) => setExpiryMonth(e.target.value)}
-                className="w-full md:w-16 p-2 border rounded mt-1"
-              />
-              <input
-                type="text"
-                placeholder="YY"
-                value={expiryYear}
-                onChange={(e) => setExpiryYear(e.target.value)}
-                className="w-full md:w-16 p-2 border rounded mt-1"
-              />
-            </div>
-          </div>
-          <div>
-            <label className="text-sm text-gray-600">CVV</label>
-            <input
-              type="password"
-              value={cvv}
-              onChange={(e) => setCvv(e.target.value)}
-              placeholder="CVV"
-              className="w-full md:w-20 p-2 border rounded mt-1"
-            />
-          </div>
-        </div>
-      </div>
-      <button className="w-full bg-pink-500 text-white py-3 rounded mt-4 hover:bg-pink-600">
-        MAKE PAYMENT
-      </button>
-      <p className="text-xs text-gray-500 mt-2">
-        By clicking "Make Payment" you agree to the terms and conditions
-      </p>
-    </div>
-  </div>
-</div>
-
-
-          {/* Promocode Section */}
-          <div className="bg-white rounded-lg shadow">
-            <div className="bg-gray-100 p-4 flex items-center gap-2">
-              <span>Unlock offers or Apply Promocodes</span>
-            </div>
-          </div>
-
-           {/* Contact Details Section */}
-
+          {/* Contact Details Section */}
           <div className="bg-white rounded-lg shadow">
             <div className="bg-purple-800 text-white p-4 flex items-center gap-2">
               <span>Share your Contact Details</span>
@@ -239,11 +141,7 @@ const Checkout = () => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="Enter your mobile number"
-<<<<<<< HEAD
-                    className="flex-1 p-3 border rounded focus:outline-none focus:border-pink-500 w-full"
-=======
                     className="flex-1 p-3 border rounded focus:outline-none focus:border-purple-800"
->>>>>>> 94ceabfe77e1dcb871510c5acf20aef2c7712b60
                   />
                 </div>
                 <p className="text-xs text-red-500 mt-1">Please enter a valid mobile number.</p>
@@ -254,8 +152,6 @@ const Checkout = () => {
             </div>
           </div>
 
-<<<<<<< HEAD
-=======
           {/* Promocode Section */}
           <div className="bg-white rounded-lg shadow">
             <div className="bg-gray-100 p-4 flex items-center gap-2">
@@ -265,6 +161,7 @@ const Checkout = () => {
 
           {/* Payment Options Section */}
           <div className="bg-white rounded-lg shadow">
+
             <div className="bg-purple-800 text-white p-4">
               <span>Payment options</span>
             </div>
@@ -354,10 +251,135 @@ const Checkout = () => {
                   By clicking "Make Payment" you agree to the terms and conditions
                 </p>
               </div>
+
+  <div className="bg-pink-500 text-white p-4">
+    <span>Payment options</span>
+  </div>
+  <div className="flex flex-col md:flex-row">
+    {/* Payment Methods */}
+    <div className="w-full md:w-1/3 border-b md:border-r">
+      <div className="py-2">
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">QuikPay</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">Pay by any UPI App</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer bg-gray-100">Debit/Credit Card</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">Net Banking</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">Mobile Wallets</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">Gift Voucher</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">Redeem Points</div>
+      </div>
+    </div>
+    {/* Card Details Form */}
+    <div className="flex-1 p-6">
+      <h3 className="mb-4 text-lg font-medium">Enter your Card details</h3>
+      <div className="bg-gray-100 p-6 rounded space-y-4">
+        <div>
+          <label className="text-sm text-gray-600">Card Number</label>
+          <input
+            type="text"
+            value={cardNumber}
+            onChange={(e) => setCardNumber(e.target.value)}
+            placeholder="Enter Your Card Number"
+            className="w-full p-2 border rounded mt-1"
+          />
+        </div>
+        <div>
+          <label className="text-sm text-gray-600">Name on the card</label>
+          <input
+            type="text"
+            value={cardName}
+            onChange={(e) => setCardName(e.target.value)}
+            className="w-full p-2 border rounded mt-1"
+          />
+        </div>
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1">
+            <label className="text-sm text-gray-600">Expiry</label>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                placeholder="MM"
+                value={expiryMonth}
+                onChange={(e) => setExpiryMonth(e.target.value)}
+                className="w-full md:w-16 p-2 border rounded mt-1"
+              />
+              <input
+                type="text"
+                placeholder="YY"
+                value={expiryYear}
+                onChange={(e) => setExpiryYear(e.target.value)}
+                className="w-full md:w-16 p-2 border rounded mt-1"
+              />
+
+            </div>
+          </div>
+          <div>
+            <label className="text-sm text-gray-600">CVV</label>
+            <input
+              type="password"
+              value={cvv}
+              onChange={(e) => setCvv(e.target.value)}
+              placeholder="CVV"
+              className="w-full md:w-20 p-2 border rounded mt-1"
+            />
+          </div>
+        </div>
+      </div>
+      <button className="w-full bg-pink-500 text-white py-3 rounded mt-4 hover:bg-pink-600">
+        MAKE PAYMENT
+      </button>
+      <p className="text-xs text-gray-500 mt-2">
+        By clicking "Make Payment" you agree to the terms and conditions
+      </p>
+    </div>
+  </div>
+</div>
+
+
+          {/* Promocode Section */}
+          <div className="bg-white rounded-lg shadow">
+            <div className="bg-gray-100 p-4 flex items-center gap-2">
+              <span>Unlock offers or Apply Promocodes</span>
             </div>
           </div>
 
->>>>>>> 94ceabfe77e1dcb871510c5acf20aef2c7712b60
+           {/* Contact Details Section */}
+
+          <div className="bg-white rounded-lg shadow">
+            <div className="bg-pink-500 text-white p-4 flex items-center gap-2">
+              <span>Share your Contact Details</span>
+            </div>
+            <div className="p-4 space-y-4">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your Email"
+                className="w-full p-3 border rounded focus:outline-none focus:border-pink-500"
+              />
+              <div>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value="+234"
+                    disabled
+                    className="w-16 p-3 border rounded bg-gray-50"
+                  />
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="Enter your mobile number"
+                    className="flex-1 p-3 border rounded focus:outline-none focus:border-pink-500 w-full"
+                  />
+                </div>
+                <p className="text-xs text-red-500 mt-1">Please enter a valid mobile number.</p>
+              </div>
+              <button className="bg-pink-500 text-white px-6 py-2 rounded">
+                Continue
+              </button>
+            </div>
+          </div>
+
           {/* Notes Section */}
           <div className="text-xs text-gray-500 space-y-2">
             <p>Note:</p>
@@ -382,11 +404,7 @@ const Checkout = () => {
         </div>
 
         {/* Right Section - Order Summary */}
-<<<<<<< HEAD
-        <div className="lg:w-[400px]">
-=======
         <div className="w-[400px] hidden lg:block">
->>>>>>> 94ceabfe77e1dcb871510c5acf20aef2c7712b60
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex justify-between items-start mb-4">
               <h2 className="uppercase text-xs font-semibold">ORDER SUMMARY</h2>
