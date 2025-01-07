@@ -45,86 +45,87 @@ const Checkout = () => {
          
           {/* Payment Options Section */}
           <div className="bg-white rounded-lg shadow">
-            <div className="bg-pink-500 text-white p-4">
-              <span>Payment options</span>
-            </div>
-            <div className="flex">
-              {/* Payment Methods */}
-              <div className="w-1/3 border-r">
-                <div className="py-2">
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">QuikPay</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">Pay by any UPI App</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer bg-gray-100">Debit/Credit Card</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">Net Banking</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">Mobile Wallets</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">Gift Voucher</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">Redeem Points</div>
-                </div>
-              </div>
-              {/* Card Details Form */}
-              <div className="flex-1 p-6">
-                <h3 className="mb-4">Enter your Card details</h3>
-                <div className="bg-gray-100 p-6 rounded space-y-4">
-                  <div>
-                    <label className="text-sm text-gray-600">Card Number</label>
-                    <input
-                      type="text"
-                      value={cardNumber}
-                      onChange={(e) => setCardNumber(e.target.value)}
-                      placeholder="Enter Your Card Number"
-                      className="w-full p-2 border rounded mt-1"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm text-gray-600">Name on the card</label>
-                    <input
-                      type="text"
-                      value={cardName}
-                      onChange={(e) => setCardName(e.target.value)}
-                      className="w-full p-2 border rounded mt-1"
-                    />
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="flex-1">
-                      <label className="text-sm text-gray-600">Expiry</label>
-                      <div className="flex gap-2">
-                        <input
-                          type="text"
-                          placeholder="MM"
-                          value={expiryMonth}
-                          onChange={(e) => setExpiryMonth(e.target.value)}
-                          className="w-16 p-2 border rounded mt-1"
-                        />
-                        <input
-                          type="text"
-                          placeholder="YY"
-                          value={expiryYear}
-                          onChange={(e) => setExpiryYear(e.target.value)}
-                          className="w-16 p-2 border rounded mt-1"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="text-sm text-gray-600">CVV</label>
-                      <input
-                        type="password"
-                        value={cvv}
-                        onChange={(e) => setCvv(e.target.value)}
-                        placeholder="CVV"
-                        className="w-20 p-2 border rounded mt-1"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <button className="w-full bg-pink-500 text-white py-3 rounded mt-4">
-                  MAKE PAYMENT
-                </button>
-                <p className="text-xs text-gray-500 mt-2">
-                  By clicking "Make Payment" you agree to the terms and conditions
-                </p>
-              </div>
+  <div className="bg-pink-500 text-white p-4">
+    <span>Payment options</span>
+  </div>
+  <div className="flex flex-col md:flex-row">
+    {/* Payment Methods */}
+    <div className="w-full md:w-1/3 border-b md:border-r">
+      <div className="py-2">
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">QuikPay</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">Pay by any UPI App</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer bg-gray-100">Debit/Credit Card</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">Net Banking</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">Mobile Wallets</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">Gift Voucher</div>
+        <div className="p-3 hover:bg-gray-50 cursor-pointer">Redeem Points</div>
+      </div>
+    </div>
+    {/* Card Details Form */}
+    <div className="flex-1 p-6">
+      <h3 className="mb-4 text-lg font-medium">Enter your Card details</h3>
+      <div className="bg-gray-100 p-6 rounded space-y-4">
+        <div>
+          <label className="text-sm text-gray-600">Card Number</label>
+          <input
+            type="text"
+            value={cardNumber}
+            onChange={(e) => setCardNumber(e.target.value)}
+            placeholder="Enter Your Card Number"
+            className="w-full p-2 border rounded mt-1"
+          />
+        </div>
+        <div>
+          <label className="text-sm text-gray-600">Name on the card</label>
+          <input
+            type="text"
+            value={cardName}
+            onChange={(e) => setCardName(e.target.value)}
+            className="w-full p-2 border rounded mt-1"
+          />
+        </div>
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1">
+            <label className="text-sm text-gray-600">Expiry</label>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                placeholder="MM"
+                value={expiryMonth}
+                onChange={(e) => setExpiryMonth(e.target.value)}
+                className="w-full md:w-16 p-2 border rounded mt-1"
+              />
+              <input
+                type="text"
+                placeholder="YY"
+                value={expiryYear}
+                onChange={(e) => setExpiryYear(e.target.value)}
+                className="w-full md:w-16 p-2 border rounded mt-1"
+              />
             </div>
           </div>
+          <div>
+            <label className="text-sm text-gray-600">CVV</label>
+            <input
+              type="password"
+              value={cvv}
+              onChange={(e) => setCvv(e.target.value)}
+              placeholder="CVV"
+              className="w-full md:w-20 p-2 border rounded mt-1"
+            />
+          </div>
+        </div>
+      </div>
+      <button className="w-full bg-pink-500 text-white py-3 rounded mt-4 hover:bg-pink-600">
+        MAKE PAYMENT
+      </button>
+      <p className="text-xs text-gray-500 mt-2">
+        By clicking "Make Payment" you agree to the terms and conditions
+      </p>
+    </div>
+  </div>
+</div>
+
 
           {/* Promocode Section */}
           <div className="bg-white rounded-lg shadow">
