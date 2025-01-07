@@ -2,7 +2,7 @@ import React from 'react'
 import { IoPlayCircle } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import Swipper from '../component/Swipper';
-
+import Footer from '../component/Footer';
 const HomePage = () => {
   return (
     <div className=''>
@@ -152,6 +152,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

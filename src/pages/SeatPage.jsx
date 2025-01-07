@@ -167,7 +167,7 @@ const SeatPage = () => {
         onAccept={handleTermsAccept}
       />
 
-      <div className='fixed bottom-0 right-0 left-0 z-10'>
+      <div className='fixed lg:relative bottom-0 right-0 left-0 z-10'>
         {/* Legend */}
         <div className="flex justify-center gap-6 lg:mt-5 bg-white border-t py-4 lg:relative">
           <div className="flex items-center gap-2">

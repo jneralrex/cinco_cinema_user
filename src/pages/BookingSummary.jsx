@@ -146,7 +146,7 @@ const BookingSummary = () => {
 
   return (
 
-    <div className="lg:max-w-7xl mt-14 lg:mt-0 mx-auto p-5">
+    <div className="w-[90%] m-auto p-5">
       <div className='shadow-xl z-10 fixed bottom-0 lg:hidden flex justify-end left-0 right-0 px-5 py-2'>
         <button onClick={scrollToSection} className=' size-14 text-sm leading-none rounded-full bg-purple-800 text-white shadow-lg'>Skip meal</button>
       </div>
@@ -169,7 +169,7 @@ const BookingSummary = () => {
           </div>
 
           {/* Categories */}
-          <div className="flex gap-4 mb-6 text-xs lg:text-[16px]">
+          <div className="flex gap-2 mb-6 text-xs lg:text-[16px]">
             <button className="bg-pink-500 text-white px-4 py-2 rounded-sm">ALL</button>
             <button className="text-gray-600 px-4 py-2">POPCORN</button>
             <button className="text-gray-600 px-4 py-2">BEVERAGES</button>

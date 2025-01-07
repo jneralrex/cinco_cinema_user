@@ -412,7 +412,9 @@ const Nav = () => {
       <div className="w-full min-h-screen mt-[59.1px] md:mt-[79.4px] lg:mt-0">
         <Outlet />
       </div>
+      <div className="hidden md:block">
       <Footer />
+      </div>
     </div>
   );
 };
