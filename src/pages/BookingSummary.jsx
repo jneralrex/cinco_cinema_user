@@ -139,7 +139,7 @@ const BookingSummary = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-5">
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-col-reverse md:flex-row">
         {/* Food Pre-booking Section */}
         <div className="flex-1">
           {/* Banner */}
@@ -203,15 +203,7 @@ const BookingSummary = () => {
         </div>
 
         {/* Booking Summary Section */}
-        <div className="w-[400px]">
-          {/* Header Banner */}
-          {/* <div className="mb-6">
-            <img 
-              src="https://assets-in.bmscdn.com/promotions/cms/creatives/1692874595339_fmcweb.jpg" 
-              alt="Food pre-booking banner" 
-              className="w-full rounded-lg"
-            />
-          </div> */}
+        <div className="lg:w-[400px]">
 
           {/* Booking Summary Section */}
           <div className="bg-white rounded-lg shadow p-6">
