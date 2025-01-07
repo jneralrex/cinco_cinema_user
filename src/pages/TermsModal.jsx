@@ -19,13 +19,13 @@ const TermsModal = ({ isOpen, onClose, onAccept }) => {
 
         {/* Content */}
         <div className="p-4 space-y-4">
-          <p className="text-red-500">
+          <p className="text-red-500 text-sm lg:text-[16px]">
             This cinema is now CASHLESS. Pay for your Booking, Food & beverages seamlessly using 
             your digital payment methods like Credit/Debit card/ UPI platform. It's fast, secure & 
             seamless. Enjoy the show.
           </p>
           
-          <ol className="list-decimal pl-5 space-y-2 text-gray-600">
+          <ol className="text-sm lg:text-[16px] list-decimal pl-5 space-y-2 text-gray-600">
             <li>Entry is allowed only for valid ticket holders.</li>
             <li>Guests aged under 18 will not be allowed in "A" rated movies.</li>
             <li>Children above the age of 3 years require tickets for "U" or "U/A" rated movies.</li>
@@ -49,7 +49,7 @@ const TermsModal = ({ isOpen, onClose, onAccept }) => {
           </button>
           <button
             onClick={onAccept}
-            className="flex-1 py-2 px-4 bg-pink-500 text-white rounded-lg hover:bg-pink-600"
+            className="flex-1 py-2 px-4 bg-purple-800 text-white rounded-lg hover:bg-purple-900"
           >
             Accept
           </button>
