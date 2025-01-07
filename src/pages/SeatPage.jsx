@@ -89,7 +89,7 @@ const SeatPage = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto p-5">
+    <div className="w-full p-5">
       {/* Header */}
       <div className="flex justify-between items-center border-b border-gray-200 pb-4 mb-5">
         <div>
