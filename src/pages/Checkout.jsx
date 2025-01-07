@@ -161,7 +161,7 @@ const Checkout = () => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="Enter your mobile number"
-                    className="flex-1 p-3 border rounded focus:outline-none focus:border-pink-500"
+                    className="flex-1 p-3 border rounded focus:outline-none focus:border-pink-500 w-full"
                   />
                 </div>
                 <p className="text-xs text-red-500 mt-1">Please enter a valid mobile number.</p>

@@ -89,7 +89,7 @@ const SeatPage = () => {
   }
 
   return (
-    <div className="w-[90%] mx-auto p-3">
+    <div className="w-full p-3">
       {/* Header */}
       <div className="flex justify-between items-center border-b border-gray-200 pb-4 mb-5">
         <div>
@@ -113,9 +113,9 @@ const SeatPage = () => {
       </div>
 
       {/* Seating Layout */}
-      <div className="flex flex-col items-center gap-3 my-8">
+      <div className="flex flex-col items-center gap-4 w-[90%] m-auto">
         {rows.map(row => (
-          <div key={row} className="flex items-center gap-3">
+          <div key={row} className="flex flex-row items-center  justify-center">
             <div className="w-8 text-center font-bold">{row}</div>
             <div className="flex gap-3 flex-1">
               {[1, 2, 3, 4, 5, 6, 7, 8].map(seatNum => (
