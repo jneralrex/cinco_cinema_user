@@ -152,8 +152,10 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <div className="lg:hidden">
       <Footer />
-    </div>
+      </div>   
+     </div>
   )
 }
 

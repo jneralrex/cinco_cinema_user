@@ -1,9 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SeatCountModal = ({ isOpen, onClose, onSelectSeats }) => {
   const [selectedCount, setSelectedCount] = React.useState(2);
   const seatNumbers = Array.from({ length: 10 }, (_, i) => i + 1);
-
+  const navigate = useNavigate();
   if (!isOpen) return null;
 
   return (
@@ -11,8 +12,8 @@ const SeatCountModal = ({ isOpen, onClose, onSelectSeats }) => {
       <div className="bg-white rounded-lg p-6 w-[400px] max-w-[90%] relative">
         {/* Close Button */}
         <button
-          onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+          onClick={navigate(-1)}
+          className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 cursor-pointer"
           aria-label="Close"
         >
           <svg
