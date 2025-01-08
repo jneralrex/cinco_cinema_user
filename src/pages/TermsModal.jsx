@@ -19,7 +19,7 @@ const TermsModal = ({ isOpen, onClose, onAccept }) => {
 
         {/* Content */}
         <div className="p-4 space-y-4">
-          <p className="text-red-500">
+          <p className="text-purple-500">
             This cinema is now CASHLESS. Pay for your Booking, Food & beverages seamlessly using 
             your digital payment methods like Credit/Debit card/ UPI platform. It's fast, secure & 
             seamless. Enjoy the show.
@@ -49,7 +49,7 @@ const TermsModal = ({ isOpen, onClose, onAccept }) => {
           </button>
           <button
             onClick={onAccept}
-            className="flex-1 py-2 px-4 bg-pink-500 text-white rounded-lg hover:bg-pink-600"
+            className="flex-1 py-2 px-4 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
           >
             Accept
           </button>
