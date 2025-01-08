@@ -10,6 +10,7 @@ import { AiOutlineDislike } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import { FaStar } from "react-icons/fa6";
 import { PiUserLight } from "react-icons/pi";
+import { TfiAngleRight } from "react-icons/tfi";
 
 const MovieDetail = () => {
   return (
@@ -114,7 +115,7 @@ const MovieDetail = () => {
                 <p className='line-clamp-3 text-[15px]'>Sergei Kravinoff, a big game hunter, takes a magical serum that gives him superhuman abilities and a longer life.</p>
             </div>
         </div>
-        <div className='lg:hidden mb-5 border-b border-gray-300 pb-5'>
+        <div className='lg:hidden mb-5 border-b border-gray-300 pb-5 relative'>
             <div className='justify-between flex items-center my-4 px-5'>
                 <p className='text-black font-semibold'>Top Reviews</p>
                 <p className='text-red-500 text-xs flex items-center gap-1 cursor-pointer'>23.3k reviews <BsChevronRight className='text-xs'/></p>
@@ -145,7 +146,7 @@ const MovieDetail = () => {
             </div>
             <div className='mt-6 flex overflow-x-scroll gap-3 px-5'>
                 <div className='border border-gray-300 rounded p-5'>
-                    <div className='flex gap-[110px]'>
+                    <div className='flex gap-[90px]'>
                         <div className='flex gap-3 items-center'>
                             <div className='border size-10 bg-gray-200 text-white flex items-center justify-center rounded-full'>
                                 <PiUserLight className='size-[80%]'/>
@@ -182,7 +183,7 @@ const MovieDetail = () => {
 
                 </div>
                 <div className='border border-gray-300 rounded p-5'>
-                    <div className='flex gap-[110px]'>
+                    <div className='flex gap-[90px]'>
                         <div className='flex gap-3 items-center'>
                             <div className='border size-10 bg-gray-200 text-white flex items-center justify-center rounded-full'>
                                 <PiUserLight className='size-[80%]'/>
@@ -218,9 +219,12 @@ const MovieDetail = () => {
                     </div>
 
                 </div>
+                <div className='cursor-pointer lg:hidden right-2 absolute size-8 rounded-full bg-black/20 top-[60%] flex justify-center items-center'>
+                    <TfiAngleRight className='lg:hidden text-white'/>
+                </div>
             </div>
         </div>
-        <div className='lg:hidden border-b border-gray-300 pb-5 mb-10'>
+        <div className='lg:hidden border-b border-gray-300 pb-5 mb-10 relative'>
             <div className='mx-5 mb-4'>
                 <p className='text-black font-semibold'>Cast</p>
             </div>
@@ -268,8 +272,11 @@ const MovieDetail = () => {
                     <p className='text-xs text-black/50'>as Sergei Kravinoff/ Kraven</p>
                 </div>
             </div>
+            <div className='cursor-pointer lg:hidden right-2 absolute size-8 rounded-full bg-black/20 top-[50%] flex justify-center items-center'>
+                <TfiAngleRight className='lg:hidden text-white'/>
+            </div>
         </div>
-        <div className='lg:hidden border-b border-t border-gray-300 py-5'>
+        <div className='lg:hidden border-b border-t border-gray-300 py-5 relative'>
             <div className='mx-5 mb-4'>
                 <p className='text-black font-semibold'>Crew</p>
             </div>
@@ -316,6 +323,9 @@ const MovieDetail = () => {
                     <p className='font-semibold text-sm'>Aaron&nbsp;Taylor-Johnson</p>
                     <p className='text-xs text-black/50'>as Sergei Kravinoff/ Kraven</p>
                 </div>
+                <div className='cursor-pointer lg:hidden right-2 absolute size-8 rounded-full bg-black/20 top-[50%] flex justify-center items-center'>
+                    <TfiAngleRight className='lg:hidden text-white'/>
+                </div>
             </div>
         </div>
         <div className='lg:hidden'>
@@ -324,50 +334,55 @@ const MovieDetail = () => {
                 <p className='text-red-500 text-xs flex items-center gap-1 cursor-pointer'>View All <BsChevronRight className='text-xs'/></p>
             </div>
         </div>
-        <div className='lg:hidden px-5 flex overflow-x-scroll gap-3 mb-10'>
-            <div>
-                <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
-                    <img src="/images/wicked-thumb.avif" alt="" className='rounded h-full' />
+        <div className='relative'>
+            <div className='lg:hidden px-5 flex overflow-x-scroll gap-3 mb-10'>
+                <div>
+                    <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
+                        <img src="/images/wicked-thumb.avif" alt="" className='rounded h-full' />
+                    </div>
+                    <div>
+                        <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Wicked</h1>
+                        <p className='line-clamp-1 lg:text-[16px] md:text-sm text-xs font-light leading-none'>English</p>
+                    </div>
                 </div>
                 <div>
-                    <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Wicked</h1>
-                    <p className='line-clamp-1 lg:text-[16px] md:text-sm text-xs font-light leading-none'>English</p>
+                    <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
+                        <img src="/images/tre-thumb.avif" alt="" className='rounded h-full' />
+                    </div>
+                    <div>
+                        <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Three Men and a Ghost</h1>
+                        <p className='line-clamp-1 lg:text-[16px] md:text-sm text-xs font-light leading-none'>Italian</p>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
-                    <img src="/images/tre-thumb.avif" alt="" className='rounded h-full' />
-                </div>
-                <div>
-                    <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Three Men and a Ghost</h1>
-                    <p className='line-clamp-1 lg:text-[16px] md:text-sm text-xs font-light leading-none'>Italian</p>
-                </div>
-            </div>
-            <div className='hidden md:block'>
-                <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
-                    <img src="/images/wicked-thumb.avif" alt="" className='rounded h-full' />
-                </div>
-                <div>
-                    <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Wicked</h1>
-                    <p className='line-clamp-1 lg:text-[16px] md:text-sm text-xs font-light leading-none'>English</p>
-                </div>
-            </div>
-            <div>
-                <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
-                    <img src="images/christmas-thumb.avif" alt="" className='rounded h-full' />
+                <div className='hidden md:block'>
+                    <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
+                        <img src="/images/wicked-thumb.avif" alt="" className='rounded h-full' />
+                    </div>
+                    <div>
+                        <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Wicked</h1>
+                        <p className='line-clamp-1 lg:text-[16px] md:text-sm text-xs font-light leading-none'>English</p>
+                    </div>
                 </div>
                 <div>
-                    <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Christmas Eve in Miller's Point</h1>
-                    <p className='line-clamp-1 lg:text-[16px] md:text-sm text-xs font-light leading-none'>English</p>
-                </div>
-            </div>
-            <div>
-                <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
-                    <img src="/images/gladiator-thumb.avif" alt="" className='rounded h-full' />
+                    <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
+                        <img src="images/christmas-thumb.avif" alt="" className='rounded h-full' />
+                    </div>
+                    <div>
+                        <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Christmas Eve in Miller's Point</h1>
+                        <p className='line-clamp-1 lg:text-[16px] md:text-sm text-xs font-light leading-none'>English</p>
+                    </div>
                 </div>
                 <div>
-                    <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Gladiator</h1>
-                    <p className='line-clamp-1 lg:text-[16px] md:text-sm text-xs font-light leading-none'>English</p>
+                    <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
+                        <img src="/images/gladiator-thumb.avif" alt="" className='rounded h-full' />
+                    </div>
+                    <div>
+                        <h1 className='font-semibold lg:text-lg md:text-[16px] leading-tight text-sm line-clamp-2'>Gladiator</h1>
+                        <p className='line-clamp-1 lg:text-[16px] md:text-sm text-xs font-light leading-none'>English</p>
+                    </div>
+                </div>
+                <div className='cursor-pointer lg:hidden right-2 absolute size-8 rounded-full bg-white/50 top-[30%] flex justify-center items-center'>
+                    <TfiAngleRight className='lg:hidden text-white'/>
                 </div>
             </div>
         </div>
@@ -480,24 +495,24 @@ const MovieDetail = () => {
                 <p>Summary of 95 reviews.</p>
                 <div className='grid grid-cols-5 gap-2 mt-4'>
                     <div className='border border-gray-400 text-sm rounded-full px-[15px] flex justify-center gap-2 items-center py-2'>
-                        <p className='text-red-400'>#GreatActing</p>
+                        <p className='text-purple-800'>#GreatActing</p>
                         <div className='bg-gray-200 rounded-sm text-center px-1'>36</div>
                     </div>
                     <div className='border border-gray-400 text-sm rounded-full px-[15px] flex justify-center gap-2 items-center py-2'>
-                        <p className='text-red-400'>#Wellmade</p>
+                        <p className='text-purple-800'>#Wellmade</p>
                         <div className='bg-gray-200 rounded-sm text-center px-1'>136</div>
                     </div>
                     <div className='border border-gray-400 text-sm rounded-full px-[15px] flex justify-center gap-2 items-center py-2'>
-                        <p className='text-red-400'>#SuperDirection
+                        <p className='text-purple-800'>#SuperDirection
                         </p>
                         <div className='bg-gray-200 rounded-sm text-center px-1'>271</div>
                     </div>
                     <div className='border border-gray-400 text-sm rounded-full px-[15px] flex justify-center gap-2 items-center py-2'>
-                        <p className='text-red-400'>#AwesomeStory</p>
+                        <p className='text-purple-800'>#AwesomeStory</p>
                         <div className='bg-gray-200 rounded-sm text-center px-1'>36</div>
                     </div>
                     <div className='border border-gray-400 text-sm rounded-full px-[15px] flex justify-center gap-2 items-center py-2'>
-                        <p className='text-red-400'>#Blockbuster</p>
+                        <p className='text-purple-800'>#Blockbuster</p>
                         <div className='bg-gray-200 rounded-sm text-center px-1'>36</div>
                     </div>
                 </div>
@@ -514,7 +529,7 @@ const MovieDetail = () => {
                                 </div>
                             </div>
                             <div className='flex gap-2'>
-                                <FaStar className='text-red-400 text-2xl'/>
+                                <FaStar className='text-purple-800 text-2xl'/>
                                 10/10
                             </div>
                         </div>
@@ -551,7 +566,7 @@ const MovieDetail = () => {
                                 </div>
                             </div>
                             <div className='flex gap-2'>
-                                <FaStar className='text-red-400 text-2xl'/>
+                                <FaStar className='text-purple-800 text-2xl'/>
                                 10/10
                             </div>
                         </div>
