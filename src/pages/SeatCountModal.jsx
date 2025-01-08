@@ -48,7 +48,7 @@ const SeatCountModal = ({ isOpen, onClose, onSelectSeats }) => {
                 onClick={() => setSelectedCount(num)}
                 className={`w-10 h-10 rounded-full ${
                   selectedCount === num
-                    ? 'bg-purple-500 text-white'
+                    ? 'bg-purple-800 text-white'
                     : 'bg-gray-100 hover:bg-gray-200'
                 } transition-colors`}
               >
@@ -67,7 +67,7 @@ const SeatCountModal = ({ isOpen, onClose, onSelectSeats }) => {
           {/* Select Seats Button */}
           <button
             onClick={() => onSelectSeats(selectedCount)}
-            className="w-full bg-purple-500 text-white py-3 rounded-md hover:bg-purple-600 transition-colors"
+            className="w-full bg-purple-800 text-white py-3 rounded-md hover:bg-purple-900 transition-colors"
           >
             Select Seats
           </button>

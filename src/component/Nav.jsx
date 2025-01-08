@@ -79,123 +79,48 @@ const Nav = () => {
                       Detect my location
                     </p>
                   </div>
-                  <div className="lg:mb-10">
-                    <p className="text-center text-sm lg:py-6 py-3">
-                      Popular Cities
-                    </p>
-                    <form
-                      method="dialog"
-                      className="grid lg:grid-cols-10 grid-cols-5 lg:gap-5 gap-3"
-                    >
-                      <button
-                        onClick={() => handleClick("Lagos")}
-                        className="flex flex-col items-center cursor-pointer"
-                      >
-                        <img
-                          src="/images/lagos.png"
-                          className="md:h-16"
-                          alt=""
-                        />
-                        <p className="lg:text-sm text-xs">Lagos</p>
+                  <div className='lg:mb-10'>
+                    <p className='text-center text-sm lg:py-6 py-3'>Popular Cities</p>
+                    <form method='dialog'  className='grid lg:grid-cols-10 grid-cols-5 lg:gap-5 gap-3'>
+                      <button onClick={() => handleClick("Lagos")} className='flex flex-col items-center cursor-pointer'>
+                        <img src="/images/lagos.png" className='md:h-16 h-7' alt="" />
+                        <p className='lg:text-sm text-xs'>Lagos</p>
                       </button>
-                      <button
-                        onClick={() => handleClick("Abuja")}
-                        className="flex flex-col items-center cursor-pointer"
-                      >
-                        <img
-                          src="/images/abuja.png"
-                          className="md:h-16 h-10"
-                          alt=""
-                        />
-                        <p className="lg:text-sm text-xs">Abuja</p>
+                      <button onClick={() => handleClick("Abuja")} className='flex flex-col items-center cursor-pointer'>
+                        <img src="/images/abuja.png" className='md:h-16 h-7' alt="" />
+                        <p className='lg:text-sm text-xs'>Abuja</p>
                       </button>
-                      <button
-                        onClick={() => handleClick("Ogun")}
-                        className="flex flex-col items-center cursor-pointer"
-                      >
-                        <img
-                          src="/images/ogun.png"
-                          className="md:h-16 h-10"
-                          alt=""
-                        />
-                        <p className="lg:text-sm text-xs">Ogun</p>
+                      <button onClick={() => handleClick("Ogun")} className='flex flex-col items-center cursor-pointer'>
+                        <img src="/images/ogun.png" className='md:h-16 h-7' alt="" />
+                        <p className='lg:text-sm text-xs'>Ogun</p>
                       </button>
-                      <button
-                        onClick={() => handleClick("Port Harcourt")}
-                        className="flex flex-col items-center cursor-pointer"
-                      >
-                        <img
-                          src="/images/port.png"
-                          className="md:h-16 h-10"
-                          alt=""
-                        />
-                        <p className="lg:text-sm text-xs">Port&nbsp;Harcourt</p>
+                      <button onClick={() => handleClick("Port Harcourt")} className='flex flex-col items-center cursor-pointer'>
+                        <img src="/images/port.png" className='md:h-16 h-7' alt="" />
+                        <p className='lg:text-sm text-xs'>Port&nbsp;Harcourt</p>
                       </button>
-                      <button
-                        onClick={() => handleClick("Kano")}
-                        className="flex flex-col items-center cursor-pointer"
-                      >
-                        <img
-                          src="/images/kano.png"
-                          className="md:h-16 h-10"
-                          alt=""
-                        />
-                        <p className="lg:text-sm text-xs">Kano</p>
+                      <button onClick={() => handleClick("Kano")} className='flex flex-col items-center cursor-pointer'>
+                        <img src="/images/kano.png" className='md:h-16 h-7' alt="" />
+                        <p className='lg:text-sm text-xs'>Kano</p>
                       </button>
-                      <button
-                        onClick={() => handleClick("Benin")}
-                        className="flex flex-col items-center cursor-pointer"
-                      >
-                        <img
-                          src="/images/benin.png"
-                          className="md:h-[66px] h-10"
-                          alt=""
-                        />
-                        <p className="lg:text-sm text-xs">Benin</p>
+                      <button onClick={() => handleClick("Benin")} className='flex flex-col items-center cursor-pointer'>
+                        <img src="/images/benin.png" className='md:h-[66px] h-7' alt="" />
+                        <p className='lg:text-sm text-xs'>Benin</p>
                       </button>
-                      <button
-                        onClick={() => handleClick("Akwa Ibom")}
-                        className="flex flex-col items-center cursor-pointer"
-                      >
-                        <img
-                          src="/images/akwa.png"
-                          className="md:h-16 h-10"
-                          alt=""
-                        />
-                        <p className="lg:text-sm text-xs">Akwa&nbsp;Ibom</p>
+                      <button onClick={() => handleClick("Akwa Ibom")} className='flex flex-col items-center cursor-pointer'>
+                        <img src="/images/akwa.png" className='md:h-16 h-7' alt="" />
+                        <p className='lg:text-sm text-xs'>Akwa&nbsp;Ibom</p>
                       </button>
-                      <button
-                        onClick={() => handleClick("Brono")}
-                        className="flex flex-col items-center cursor-pointer"
-                      >
-                        <img
-                          src="/images/brono.png"
-                          className="md:h-16 h-10"
-                          alt=""
-                        />
-                        <p className="lg:text-sm text-xs">Borno</p>
+                      <button onClick={() => handleClick("Brono")} className='flex flex-col items-center cursor-pointer'>
+                        <img src="/images/brono.png" className='md:h-16 h-7' alt="" />
+                        <p className='lg:text-sm text-xs'>Borno</p>
                       </button>
-                      <button
-                        onClick={() => handleClick("Oyo")}
-                        className="flex flex-col items-center cursor-pointer"
-                      >
-                        <img
-                          src="/images/oyo.png"
-                          className="md:h-16 h-10"
-                          alt=""
-                        />
-                        <p className="lg:text-sm text-xs">Oyo</p>
+                      <button onClick={() => handleClick("Oyo")} className='flex flex-col items-center cursor-pointer'>
+                        <img src="/images/oyo.png" className='md:h-16 h-7' alt="" />
+                        <p className='lg:text-sm text-xs'>Oyo</p>
                       </button>
-                      <button
-                        onClick={() => handleClick("Ondo")}
-                        className="flex flex-col items-center"
-                      >
-                        <img
-                          src="/images/ondo.png"
-                          className="md:h-16 h-10"
-                          alt=""
-                        />
-                        <p className="lg:text-sm text-xs">Ondo</p>
+                      <button onClick={() => handleClick("Ondo")} className='flex flex-col items-center'>
+                        <img src="/images/ondo.png" className='md:h-16 h-7' alt="" />
+                        <p className='lg:text-sm text-xs'>Ondo</p>
                       </button>
                     </form>
                   </div>
@@ -487,7 +412,9 @@ const Nav = () => {
       <div className="w-full min-h-screen mt-[59.1px] md:mt-[79.4px] lg:mt-0">
         <Outlet />
       </div>
+      <div className="hidden lg:block">
       <Footer />
+      </div>
     </div>
   );
 };
