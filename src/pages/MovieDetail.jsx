@@ -334,7 +334,7 @@ const MovieDetail = () => {
                 <p className='text-red-500 text-xs flex items-center gap-1 cursor-pointer'>View All <BsChevronRight className='text-xs'/></p>
             </div>
         </div>
-        <div className='relative'>
+        <div className='relative pb-10'>
             <div className='lg:hidden px-5 flex overflow-x-scroll gap-3 mb-10'>
                 <div>
                     <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
@@ -381,7 +381,7 @@ const MovieDetail = () => {
                         <p className='line-clamp-1 lg:text-[16px] md:text-sm text-xs font-light leading-none'>English</p>
                     </div>
                 </div>
-                <div className='cursor-pointer lg:hidden right-2 absolute size-8 rounded-full bg-white/50 top-[30%] flex justify-center items-center'>
+                <div className='cursor-pointer lg:hidden right-2 absolute size-8 rounded-full bg-white/50 top-[25%] flex justify-center items-center'>
                     <TfiAngleRight className='lg:hidden text-white'/>
                 </div>
             </div>

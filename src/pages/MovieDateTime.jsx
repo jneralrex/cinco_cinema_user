@@ -12,6 +12,7 @@ import { MdInfoOutline } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { BiSearch } from "react-icons/bi";
 import { IoMdHeartEmpty } from "react-icons/io";
+import Footer from '../component/Footer';
 
 const MovieDateTime = () => {
   return (
@@ -222,6 +223,9 @@ const MovieDateTime = () => {
                     </div>
             </div>
         </div>
+        <div className='lg:hidden'>
+            <Footer/>
+      </div>
     </div>
   )
 }

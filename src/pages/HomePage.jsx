@@ -2,6 +2,7 @@ import React from 'react'
 import { IoPlayCircle } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import Swipper from '../component/Swipper';
+import Footer from '../component/Footer';
 
 const HomePage = () => {
   return (
@@ -92,7 +93,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className='bg-purple-900 text-white md:py-7 py-5 mb-10'>
+      <div className='bg-purple-900 text-white md:py-7 py-5 pb-10'>
         <div className='hidden  xl:w-[80%] w-[90%] mx-auto md:flex items-center gap-1 xl:mb-12 mb-5 cursor-pointer'>
           <IoPlayCircle className='lg:text-6xl text-4xl text-white' />
           <div>
@@ -151,6 +152,9 @@ const HomePage = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className='lg:hidden'>
+        <Footer/>
       </div>
     </div>
   )

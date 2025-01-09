@@ -151,7 +151,7 @@ const SeatPage = () => {
         onAccept={handleTermsAccept}
       />
 
-      <div className='fixed bottom-0 right-0 left-0 z-10'>
+      <div className='fixed lg:relative bottom-0 right-0 left-0 z-10'>
         {/* Legend */}
         <div className="flex justify-center gap-6 lg:mt-5 bg-white border-t py-4 lg:relative">
           <div className="flex items-center gap-2">
@@ -171,7 +171,7 @@ const SeatPage = () => {
         {selectedSeats.length > 0 && (
           <div className="lg:p-4 p-2 flex items-center justify-center bg-white border-t border-gray-200">
             <button 
-              className="text-center items-center justify-center bg-purple-800 text-white lg:py-3 py-2 rounded-lg font-semibold hover:bg-purple-900 px-3 transition-colors"
+              className="text-center items-center justify-center bg-purple-800 text-white lg:py-3 py-2 rounded-lg font-semibold hover:bg-purple-900 px-3 lg:px-20 transition-colors"
               onClick={handlePaymentClick}
             >
               Pay&nbsp;Rs.{totalAmount}

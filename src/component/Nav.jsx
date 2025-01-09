@@ -328,7 +328,9 @@ const Nav = () => {
         </div>
       </div>
       <Outlet/>
-      <Footer/>
+      <div className='hidden lg:block'>
+        <Footer/>
+      </div>
     </div>
   
   )

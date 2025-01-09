@@ -39,79 +39,7 @@ const Checkout = () => {
 
   return (
     <div className="lg:max-w-7xl mt-14 md:mt-20 lg:mt-0 mx-auto p-5">
-      {/* mobile view order summary */}
-      <div className="mb-5 lg:hidden">
-        <div className="bg-white border rounded-lg shadow-md p-4">
-          <div className="flex justify-between items-start mb-4">
-            <h2 className="uppercase text-xs font-bold">ORDER SUMMARY</h2>
-            <div className="text-right">
-              <span className="lg:text-2xl text-xl font-semibold">{selectedSeats.length}</span>
-              <p className="text-[10px] text-gray-600">Tickets</p>
-            </div>
-          </div>
-          
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-medium text-sm">{movieDetails.title}</h3>
-              <p className="text-xs text-gray-500">{movieDetails.language}, {movieDetails.format}</p>
-              <p className="text-xs text-gray-500">{movieDetails.theater}</p>
-              <p className="text-xs">M-Ticket</p>
-              <p className="text-xs mt-2">{movieDetails.ticketId}</p>
-              <div className="text-xs">
-                <p>{movieDetails.date}</p>
-                <p>{movieDetails.time}</p>
-              </div>
-            </div>
-
-            <div className="pt-3 border-t border-dashed">
-              <div className="flex justify-between text-sm">
-                <span>Sub&nbsp;Total</span>
-                <span>Rs.&nbsp;{Number(basePrice).toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between items-center mt-2">
-                <div className="flex flex-wrap items-center gap-1">
-                  <span className="text-sm">+&nbsp;Convenience&nbsp;fees</span>
-                  <span className="text-xs text-pink-500 cursor-pointer">Show fee breakup</span>
-                </div>
-                <span className="text-sm">Rs.&nbsp;{Number(convenienceFee).toFixed(2)}</span>
-              </div>
-            </div>
-
-            {/* Donation Section */}
-            <div className="bg-gray-50 p-2 rounded">
-              <div className="flex justify-between items-start">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-pink-500">★</span>
-                    <span className="text-sm">Donate to BookAChange</span>
-                  </div>
-                  <div className="text-[10px] text-gray-500">
-                    (₹1 per ticket will be added)
-                  </div>
-                  <div className="text-[10px] text-pink-500 cursor-pointer">
-                    View T&C
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-sm">Rs. 0</div>
-                  <div className="text-[10px] text-pink-500 cursor-pointer">
-                    Add Rs. {selectedSeats.length}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Amount Payable */}
-            <div className="bg-yellow-50 p-3 rounded flex justify-between items-center">
-              <span className="text-sm font-medium">Amount Payable</span>
-              <span className="text-sm font-medium">Rs. {Number(totalPayable).toFixed(2)}</span>
-            </div>
-
-      
-          </div>
-        </div>
-      </div>
-      <div className="lg:flex gap-6">
+      <div className="flex flex-col-reverse lg:flex-row gap-6">
         {/* Left Section - Contact Details & Payment */}
         <div className="flex-1 space-y-4">
           {/* Contact Details Section */}
@@ -262,7 +190,7 @@ const Checkout = () => {
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between pt-4 border-t pb-5">
+          <div className="lg:flex items-center justify-between pt-4 border-t pb-5">
             <div className="text-xs text-gray-500">
               © Bigtree Entertainment Pvt. Ltd. |
               <span className="text-gray-600 hover:underline cursor-pointer"> Privacy Policy</span> |
@@ -276,12 +204,12 @@ const Checkout = () => {
         </div>
 
         {/* Right Section - Order Summary */}
-        <div className="w-[400px] hidden lg:block">
-          <div className="bg-white rounded-lg shadow p-6">
+        <div className="mb-5">
+          <div className="bg-white border rounded-lg shadow-md p-4">
             <div className="flex justify-between items-start mb-4">
-              <h2 className="uppercase text-xs font-semibold">ORDER SUMMARY</h2>
+              <h2 className="uppercase text-xs font-bold">ORDER SUMMARY</h2>
               <div className="text-right">
-                <span className="text-2xl font-semibold">{selectedSeats.length}</span>
+                <span className="lg:text-2xl text-xl font-semibold">{selectedSeats.length}</span>
                 <p className="text-[10px] text-gray-600">Tickets</p>
               </div>
             </div>
@@ -301,20 +229,20 @@ const Checkout = () => {
 
               <div className="pt-3 border-t border-dashed">
                 <div className="flex justify-between text-sm">
-                  <span>Sub Total</span>
-                  <span>Rs. {Number(basePrice).toFixed(2)}</span>
+                  <span>Sub&nbsp;Total</span>
+                  <span>Rs.&nbsp;{Number(basePrice).toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between items-center mt-2">
-                  <div className="flex items-center gap-1">
-                    <span className="text-sm">+ Convenience fees</span>
+                  <div className="flex flex-wrap items-center gap-1">
+                    <span className="text-sm">+&nbsp;Convenience&nbsp;fees</span>
                     <span className="text-xs text-pink-500 cursor-pointer">Show fee breakup</span>
                   </div>
-                  <span className="text-sm">Rs. {Number(convenienceFee).toFixed(2)}</span>
+                  <span className="text-sm">Rs.&nbsp;{Number(convenienceFee).toFixed(2)}</span>
                 </div>
               </div>
 
               {/* Donation Section */}
-              <div className="bg-gray-50 p-4 rounded">
+              <div className="bg-gray-50 p-2 rounded">
                 <div className="flex justify-between items-start">
                   <div>
                     <div className="flex items-center gap-2">
@@ -346,7 +274,7 @@ const Checkout = () => {
         
             </div>
           </div>
-        </div>
+      </div>
       </div>
     </div>
   );
