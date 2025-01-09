@@ -146,19 +146,6 @@ const SeatPage = () => {
       </div>
 
 
-      {/* Payment Button */}
-      {selectedSeats.length > 0 && (
-       <div className="p-4 flex justify-center border-t border-gray-200 z-20">
-       <button 
-         className="w-full max-w-xs mx-auto bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors"
-         onClick={handlePaymentClick}
-       >
-         Pay Rs.{totalAmount}
-       </button>
-     </div>
-     
-      )}
-
 
       {/* Terms Modal */}
       <TermsModal 

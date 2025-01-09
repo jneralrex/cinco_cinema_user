@@ -199,7 +199,7 @@ const Checkout = () => {
             </div>
 
             {/* Notes Section */}
-            <div className="text-xs text-gray-500 space-y-2">
+            <div className="text-xs text-gray-500 space-y-2 px-4 pb-3">
               <p>Note:</p>
               <ol className="list-decimal pl-4 space-y-1">
                 <li>
@@ -216,7 +216,7 @@ const Checkout = () => {
             </div>
 
             {/* Footer */}
-            <div className="flex items-center justify-between pt-4 border-t pb-5">
+            <div className="lg:flex items-center justify-between pt-4 border-t pb-5 px-4">
               <div className="text-xs text-gray-500">
                 © Bigtree Entertainment Pvt. Ltd. |
                 <span className="text-gray-600 hover:underline cursor-pointer">
