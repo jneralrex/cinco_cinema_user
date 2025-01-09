@@ -6,7 +6,7 @@ const SeatCountModal = ({ isOpen, onClose, onSelectSeats }) => {
   const navigate = useNavigate()
   const [selectedCount, setSelectedCount] = React.useState(2);
   const seatNumbers = Array.from({ length: 10 }, (_, i) => i + 1);
-
+  // const navigate = useNavigate();
   if (!isOpen) return null;
 
   const closeModal = () => {
@@ -25,16 +25,12 @@ const SeatCountModal = ({ isOpen, onClose, onSelectSeats }) => {
           </button>
           {/* Scooter Image */}
           <div className="flex justify-center mb-8">
-            <img 
-              src="/scooter.png" 
-              alt="Scooter" 
-              className="w-24 h-24"
-            />
+            <img src="/scooter.png" alt="Scooter" className="w-24 h-24" />
           </div>
 
           {/* Seat Number Selection */}
           <div className="flex justify-center gap-3 mb-8 flex-wrap">
-            {seatNumbers.map(num => (
+            {seatNumbers.map((num) => (
               <button
                 key={num}
                 onClick={() => setSelectedCount(num)}

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { MdOutlineSecurity } from "react-icons/md";
 
 const Checkout = () => {
@@ -10,38 +10,38 @@ const Checkout = () => {
   const {
     selectedSeats = [],
     movieDetails = {
-      title: '',
-      language: '',
-      format: '',
-      theater: '',
-      date: '',
-      time: '',
-      ticketId: ''
+      title: "",
+      language: "",
+      format: "",
+      theater: "",
+      date: "",
+      time: "",
+      ticketId: "",
     },
     basePrice = 0,
     convenienceFee = 0,
-    totalPayable = 0
+    totalPayable = 0,
   } = location.state || {};
 
   // Redirect if no state is present
   if (!location.state) {
-    navigate('/booking-summary');
+    navigate("/booking-summary");
     return null;
   }
 
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [cardNumber, setCardNumber] = useState('');
-  const [cardName, setCardName] = useState('');
-  const [expiryMonth, setExpiryMonth] = useState('');
-  const [expiryYear, setExpiryYear] = useState('');
-  const [cvv, setCvv] = useState('');
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardName, setCardName] = useState("");
+  const [expiryMonth, setExpiryMonth] = useState("");
+  const [expiryYear, setExpiryYear] = useState("");
+  const [cvv, setCvv] = useState("");
 
   return (
     <div className="lg:max-w-7xl mt-14 md:mt-20 lg:mt-0 mx-auto p-5">
       <div className="flex flex-col-reverse lg:flex-row gap-6">
         {/* Left Section - Contact Details & Payment */}
-        <div className="flex-1 space-y-4">
+        <div className=" flex flex-col flex-1 space-y-4 ">
           {/* Contact Details Section */}
           <div className="bg-white rounded-lg shadow">
             <div className="bg-purple-800 text-white p-4 flex items-center gap-2">
@@ -71,7 +71,9 @@ const Checkout = () => {
                     className="flex-1 p-3 border rounded focus:outline-none focus:border-purple-800"
                   />
                 </div>
-                <p className="text-xs text-red-500 mt-1">Please enter a valid mobile number.</p>
+                <p className="text-xs text-red-500 mt-1">
+                  Please enter a valid mobile number.
+                </p>
               </div>
               <button className="bg-purple-800 text-white px-6 py-2 rounded">
                 Continue
@@ -95,18 +97,32 @@ const Checkout = () => {
               {/* Payment Methods */}
               <div className="lg:w-1/3 border-r hidden lg:block">
                 <div className="py-2">
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">QuikPay</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">Pay by any UPI App</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer bg-gray-100">Debit/Credit Card</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">Net Banking</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">Mobile Wallets</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">Gift Voucher</div>
-                  <div className="p-3 hover:bg-gray-50 cursor-pointer">Redeem Points</div>
+                  <div className="p-3 hover:bg-gray-50 cursor-pointer">
+                    QuikPay
+                  </div>
+                  <div className="p-3 hover:bg-gray-50 cursor-pointer">
+                    Pay by any UPI App
+                  </div>
+                  <div className="p-3 hover:bg-gray-50 cursor-pointer bg-gray-100">
+                    Debit/Credit Card
+                  </div>
+                  <div className="p-3 hover:bg-gray-50 cursor-pointer">
+                    Net Banking
+                  </div>
+                  <div className="p-3 hover:bg-gray-50 cursor-pointer">
+                    Mobile Wallets
+                  </div>
+                  <div className="p-3 hover:bg-gray-50 cursor-pointer">
+                    Gift Voucher
+                  </div>
+                  <div className="p-3 hover:bg-gray-50 cursor-pointer">
+                    Redeem Points
+                  </div>
                 </div>
               </div>
               {/* payment method for mobile */}
               <select className="select select-bordered outline-none ring-0 rounded-none w-full lg:hidden">
-                <option disabled >Pick a Preferred Payment Method</option>
+                <option disabled>Pick a Preferred Payment Method</option>
                 <option>Pay by any UPI App</option>
                 <option selected>Debit/Credit Card</option>
                 <option>Net Banking</option>
@@ -130,7 +146,9 @@ const Checkout = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-sm text-gray-600">Name on the card</label>
+                    <label className="text-sm text-gray-600">
+                      Name on the card
+                    </label>
                     <input
                       type="text"
                       value={cardName}
@@ -174,33 +192,54 @@ const Checkout = () => {
                   MAKE PAYMENT
                 </button>
                 <p className="text-xs text-gray-500 mt-2">
-                  By clicking "Make Payment" you agree to the terms and conditions
+                  By clicking "Make Payment" you agree to the terms and
+                  conditions
                 </p>
+              </div>
+            </div>
+
+            {/* Notes Section */}
+            <div className="text-xs text-gray-500 space-y-2">
+              <p>Note:</p>
+              <ol className="list-decimal pl-4 space-y-1">
+                <li>
+                  You can cancel the tickets 20 min(s) before the show. Refunds
+                  will be done according to{" "}
+                  <span className="text-pink-500">Cancellation Policy</span>
+                </li>
+                <li>
+                  In case of Credit/Debit Card bookings, the Credit/Debit Card
+                  and Card holder must be present at the ticket counter while
+                  collecting the ticket(s).
+                </li>
+              </ol>
+            </div>
+
+            {/* Footer */}
+            <div className="flex items-center justify-between pt-4 border-t pb-5">
+              <div className="text-xs text-gray-500">
+                © Bigtree Entertainment Pvt. Ltd. |
+                <span className="text-gray-600 hover:underline cursor-pointer">
+                  {" "}
+                  Privacy Policy
+                </span>{" "}
+                |
+                <span className="text-gray-600 hover:underline cursor-pointer">
+                  {" "}
+                  Contact Us
+                </span>
+              </div>
+              <div className="flex items-center gap-1">
+                <span className="text-xs text-gray-500">
+                  As safe as it gets
+                </span>
+                <MdOutlineSecurity className="text-xl" />
               </div>
             </div>
           </div>
 
-          {/* Notes Section */}
-          <div className="text-xs text-gray-500 space-y-2">
-            <p>Note:</p>
-            <ol className="list-decimal pl-4 space-y-1">
-              <li>You can cancel the tickets 20 min(s) before the show. Refunds will be done according to <span className="text-pink-500">Cancellation Policy</span></li>
-              <li>In case of Credit/Debit Card bookings, the Credit/Debit Card and Card holder must be present at the ticket counter while collecting the ticket(s).</li>
-            </ol>
-          </div>
-
-          {/* Footer */}
-          <div className="lg:flex items-center justify-between pt-4 border-t pb-5">
-            <div className="text-xs text-gray-500">
-              © Bigtree Entertainment Pvt. Ltd. |
-              <span className="text-gray-600 hover:underline cursor-pointer"> Privacy Policy</span> |
-              <span className="text-gray-600 hover:underline cursor-pointer"> Contact Us</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="text-xs text-gray-500">As safe as it gets</span>
-              <MdOutlineSecurity className='text-xl' />
-            </div>
-          </div>
+          {/* Right Section - Order Summary */}
+          
         </div>
 
         {/* Right Section - Order Summary */}
@@ -227,19 +266,23 @@ const Checkout = () => {
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-dashed">
-                <div className="flex justify-between text-sm">
-                  <span>Sub&nbsp;Total</span>
-                  <span>Rs.&nbsp;{Number(basePrice).toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between items-center mt-2">
-                  <div className="flex flex-wrap items-center gap-1">
-                    <span className="text-sm">+&nbsp;Convenience&nbsp;fees</span>
-                    <span className="text-xs text-pink-500 cursor-pointer">Show fee breakup</span>
-                  </div>
-                  <span className="text-sm">Rs.&nbsp;{Number(convenienceFee).toFixed(2)}</span>
-                </div>
+            <div className="pt-3 border-t border-dashed">
+              <div className="flex justify-between text-sm">
+                <span>Sub&nbsp;Total</span>
+                <span>Rs.&nbsp;{Number(basePrice).toFixed(2)}</span>
               </div>
+              <div className="flex justify-between items-center mt-2">
+                <div className="flex flex-wrap items-center gap-1">
+                  <span className="text-sm">+&nbsp;Convenience&nbsp;fees</span>
+                  <span className="text-xs text-pink-500 cursor-pointer">
+                    Show fee breakup
+                  </span>
+                </div>
+                <span className="text-sm">
+                  Rs.&nbsp;{Number(convenienceFee).toFixed(2)}
+                </span>
+              </div>
+            </div>
 
               {/* Donation Section */}
               <div className="bg-gray-50 p-2 rounded">

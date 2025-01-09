@@ -25,8 +25,6 @@ const router = createBrowserRouter(
     <Route>
       {/* Public Routes */}
      
-
-
       <Route element={<Nav />}>
         <Route index element={<HomePage />} />
         <Route path="movie-detail" element={<MovieDetail />} />
@@ -35,8 +33,6 @@ const router = createBrowserRouter(
         <Route path="about-page" element={<AboutPage />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="profile-page" element={<ProfilePage />} />
-
-
         <Route path="seat-page" element={<SeatPage />} />
         <Route path="booking-summary" element={<BookingSummary />} />
         <Route path="checkout" element={<Checkout />} />

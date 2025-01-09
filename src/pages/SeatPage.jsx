@@ -90,6 +90,7 @@ const SeatPage = () => {
 
   return (
     <div className="lg:max-w-7xl  md:px-[100px] mt-14 md:mt-20 lg:mt-0 mx-auto p-5">
+  
       {/* Header */}
       <div className="flex justify-between items-center border-b border-gray-200 pb-4 mb-5">
         <div>
@@ -99,6 +100,7 @@ const SeatPage = () => {
             <p className='text-xs lg:text-sm'>| Today, 29 Dec, 10:30 PM</p>
           </div>
         </div>
+
         <div className="flex items-center gap-2">
           <span className='text-sm lg:text-[16px]'>{maxSeats} Tickets</span>
           <button 
@@ -116,11 +118,11 @@ const SeatPage = () => {
       </div>
 
       {/* Seating Layout */}
-      <div className="flex flex-col items-center gap-3 my-8">
+      <div className="flex flex-col items-center gap-4 w-[90%] m-auto">
         {rows.map(row => (
-          <div key={row} className="flex items-center gap-3">
+          <div key={row} className="flex flex-row items-center justify-center">
             <div className="w-8 text-center font-bold">{row}</div>
-            <div className="flex gap-3 flex-1">
+            <div className="flex gap-1 flex-1">
               {[1, 2, 3, 4, 5, 6, 7, 8].map(seatNum => (
                 <button
                   key={`${row}-${seatNum}`}
@@ -142,6 +144,20 @@ const SeatPage = () => {
         <div className="h-2 bg-gradient-to-b from-white to-blue-100 rounded-full mx-auto w-4/5 mb-3 shadow-md"></div>
         <p className="text-sm text-gray-600">All eyes this way please!</p>
       </div>
+
+
+      {/* Payment Button */}
+      {selectedSeats.length > 0 && (
+       <div className="p-4 flex justify-center border-t border-gray-200 z-20">
+       <button 
+         className="w-full max-w-xs mx-auto bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors"
+         onClick={handlePaymentClick}
+       >
+         Pay Rs.{totalAmount}
+       </button>
+     </div>
+     
+      )}
 
 
       {/* Terms Modal */}
