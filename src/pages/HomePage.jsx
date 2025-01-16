@@ -3,15 +3,16 @@ import { IoPlayCircle } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import Swipper from '../component/Swipper';
 import Footer from '../component/Footer';
+
 const HomePage = () => {
   return (
     <div className=''>
-      <div className=' '>
-        <div className=' mx-auto'>
+      <div className='mt-16 lg:my-10 mb-5 md:mt-24'>
+        <div className='xl:w-[80%] lg:w-[90%] mx-auto'>
           <Swipper/>
         </div>
       </div>
-      <div className='lg:w-[90%] w-[93.4%] mx-auto mb-10'>
+      <div className='xl:w-[80%] w-[90%] mx-auto mb-10'>
         <h1 className='lg:text-[26px] text-lg md:text-xl font-bold mb-2'>Recommended Movies</h1>
         <div className='lg:grid lg:grid-cols-5 flex overflow-x-scroll lg:overflow-hidden xl:gap-8 gap-3'>
           <Link to='/movie-detail'>
@@ -63,7 +64,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className='lg:w-[90%] w-[93.4%] mx-auto mb-10'>
+      <div className='xl:w-[80%] w-[90%] mx-auto mb-10'>
         <h1 className='lg:text-[26px] text-lg md:text-xl font-bold mb-2'>The Best of Live Events</h1>
         <div className='grid lg:grid-cols-5 grid-cols-4 xl:gap-7 gap-5'>
           <div>
@@ -92,7 +93,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className='bg-purple-900 text-white md:py-7 py-5 mb-10'>
+      <div className='bg-purple-900 text-white md:py-7 py-5 pb-10'>
         <div className='hidden  xl:w-[80%] w-[90%] mx-auto md:flex items-center gap-1 xl:mb-12 mb-5 cursor-pointer'>
           <IoPlayCircle className='lg:text-6xl text-4xl text-white' />
           <div>
@@ -102,7 +103,7 @@ const HomePage = () => {
         </div>
         <div className='xl:w-[80%] w-[90%] mx-auto'>
           <h1 className='lg:text-[26px] text-lg md:text-xl font-bold'>Premieres</h1>
-          <p className='text-xs text-white font-semibold mb-2'>Brand new release every friday!</p>
+          <p className='text-xs text-white font-semibold mb-2'>Brand new release every friday</p>
           <div className='lg:grid lg:grid-cols-5 flex overflow-x-scroll lg:overflow-hidden xl:gap-7 gap-3'>
             <div>
               <div className='md:mb-2 h-[170px] w-[110px] xl:h-[320px] lg:h-[250px] md:h-[230px] lg:w-full md:w-[150px]'>
@@ -152,10 +153,10 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="lg:hidden">
-      <Footer />
-      </div>   
-     </div>
+      <div className='lg:hidden'>
+        <Footer/>
+      </div>
+    </div>
   )
 }
 

@@ -38,10 +38,8 @@ const Checkout = () => {
   const [cvv, setCvv] = useState("");
 
   return (
-    <div className=" w-full m-auto p-5">
-      {/* mobile view order summary */}
-     
-      <div className="flex flex-col-reverse md:flex-row justify-between w-full md:gap-10">
+    <div className="lg:max-w-7xl mt-14 md:mt-20 lg:mt-0 mx-auto p-5">
+      <div className="flex flex-col-reverse lg:flex-row gap-6">
         {/* Left Section - Contact Details & Payment */}
         <div className=" flex flex-col flex-1 space-y-4 ">
           {/* Contact Details Section */}
@@ -201,7 +199,7 @@ const Checkout = () => {
             </div>
 
             {/* Notes Section */}
-            <div className="text-xs text-gray-500 space-y-2">
+            <div className="text-xs text-gray-500 space-y-2 px-4 pb-3">
               <p>Note:</p>
               <ol className="list-decimal pl-4 space-y-1">
                 <li>
@@ -218,7 +216,7 @@ const Checkout = () => {
             </div>
 
             {/* Footer */}
-            <div className="flex items-center justify-between pt-4 border-t pb-5">
+            <div className="lg:flex items-center justify-between pt-4 border-t pb-5 px-4">
               <div className="text-xs text-gray-500">
                 © Bigtree Entertainment Pvt. Ltd. |
                 <span className="text-gray-600 hover:underline cursor-pointer">
@@ -243,32 +241,30 @@ const Checkout = () => {
           {/* Right Section - Order Summary */}
           
         </div>
-        <div className="mb-5 ">
-        <div className="bg-white border rounded-lg shadow-md p-4">
-          <div className="flex justify-between items-start mb-4">
-            <h2 className="uppercase text-xs font-bold">ORDER SUMMARY</h2>
-            <div className="text-right">
-              <span className="lg:text-2xl text-xl font-semibold">
-                {selectedSeats.length}
-              </span>
-              <p className="text-[10px] text-gray-600">Tickets</p>
-            </div>
-          </div>
 
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-medium text-sm">{movieDetails.title}</h3>
-              <p className="text-xs text-gray-500">
-                {movieDetails.language}, {movieDetails.format}
-              </p>
-              <p className="text-xs text-gray-500">{movieDetails.theater}</p>
-              <p className="text-xs">M-Ticket</p>
-              <p className="text-xs mt-2">{movieDetails.ticketId}</p>
-              <div className="text-xs">
-                <p>{movieDetails.date}</p>
-                <p>{movieDetails.time}</p>
+        {/* Right Section - Order Summary */}
+        <div className="mb-5">
+          <div className="bg-white border rounded-lg shadow-md p-4">
+            <div className="flex justify-between items-start mb-4">
+              <h2 className="uppercase text-xs font-bold">ORDER SUMMARY</h2>
+              <div className="text-right">
+                <span className="lg:text-2xl text-xl font-semibold">{selectedSeats.length}</span>
+                <p className="text-[10px] text-gray-600">Tickets</p>
               </div>
             </div>
+            
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-medium text-sm">{movieDetails.title}</h3>
+                <p className="text-xs text-gray-500">{movieDetails.language}, {movieDetails.format}</p>
+                <p className="text-xs text-gray-500">{movieDetails.theater}</p>
+                <p className="text-xs">M-Ticket</p>
+                <p className="text-xs mt-2">{movieDetails.ticketId}</p>
+                <div className="text-xs">
+                  <p>{movieDetails.date}</p>
+                  <p>{movieDetails.time}</p>
+                </div>
+              </div>
 
             <div className="pt-3 border-t border-dashed">
               <div className="flex justify-between text-sm">
@@ -288,39 +284,39 @@ const Checkout = () => {
               </div>
             </div>
 
-            {/* Donation Section */}
-            <div className="bg-gray-50 p-2 rounded">
-              <div className="flex justify-between items-start">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-pink-500">★</span>
-                    <span className="text-sm">Donate to BookAChange</span>
+              {/* Donation Section */}
+              <div className="bg-gray-50 p-2 rounded">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-pink-500">★</span>
+                      <span className="text-sm">Donate to BookAChange</span>
+                    </div>
+                    <div className="text-[10px] text-gray-500">
+                      (₹1 per ticket will be added)
+                    </div>
+                    <div className="text-[10px] text-pink-500 cursor-pointer">
+                      View T&C
+                    </div>
                   </div>
-                  <div className="text-[10px] text-gray-500">
-                    (₹1 per ticket will be added)
-                  </div>
-                  <div className="text-[10px] text-pink-500 cursor-pointer">
-                    View T&C
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-sm">Rs. 0</div>
-                  <div className="text-[10px] text-pink-500 cursor-pointer">
-                    Add Rs. {selectedSeats.length}
+                  <div className="text-right">
+                    <div className="text-sm">Rs. 0</div>
+                    <div className="text-[10px] text-pink-500 cursor-pointer">
+                      Add Rs. {selectedSeats.length}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Amount Payable */}
-            <div className="bg-yellow-50 p-3 rounded flex justify-between items-center">
-              <span className="text-sm font-medium">Amount Payable</span>
-              <span className="text-sm font-medium">
-                Rs. {Number(totalPayable).toFixed(2)}
-              </span>
+              {/* Amount Payable */}
+              <div className="bg-yellow-50 p-3 rounded flex justify-between items-center">
+                <span className="text-sm font-medium">Amount Payable</span>
+                <span className="text-sm font-medium">Rs. {Number(totalPayable).toFixed(2)}</span>
+              </div>
+
+        
             </div>
           </div>
-        </div>
       </div>
       </div>
     </div>
