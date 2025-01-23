@@ -341,7 +341,7 @@ const BookingSummary = () => {
 
                 <button 
                   onClick={handleProceed}
-                  className="w-full bg-pink-500 text-white py-3 rounded flex justify-between items-center px-4"
+                  className="w-full bg-purple-500 text-white py-3 rounded flex justify-between items-center px-4"
                 >
                   <span>TOTAL: Rs {totalPayable.toFixed(2)}</span>
                   <span>Proceed</span>
