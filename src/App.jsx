@@ -19,6 +19,7 @@ import MovieDetail from "./pages/MovieDetail";
 import MovieDateTime from "./pages/MovieDateTime";
 import Nav from "./component/Nav";
 import NotFound from "./component/NotFound";
+import CinemaPage from "./pages/CinemaPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,12 +28,13 @@ const router = createBrowserRouter(
      
       <Route element={<Nav />}>
         <Route index element={<HomePage />} />
-        <Route path="movie-detail" element={<MovieDetail />} />
-        <Route path="movie-date-time" element={<MovieDateTime />} />
+        <Route path="movie-detail/:id" element={<MovieDetail />} />
+        <Route path="movie-date-time/:id" element={<MovieDateTime />} />
         <Route path="seat-page" element={<SeatPage />} />
         <Route path="about-page" element={<AboutPage />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="profile-page" element={<ProfilePage />} />
+        <Route path="cinema/:id" element={<CinemaPage />} />
         <Route path="seat-page" element={<SeatPage />} />
         <Route path="booking-summary" element={<BookingSummary />} />
         <Route path="checkout" element={<Checkout />} />
