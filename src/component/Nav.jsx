@@ -158,9 +158,8 @@ const handleSignUp = async(e) => {
           {/* sign up/in */}
           <div>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
-            {loggedUser?.user?.user?.username}
-
-            <button onClick={()=>document.getElementById('my_modal_3').showModal()} className='bg-purple-800 px-4 py-[5px] rounded text-xs text-white'>Sign in</button>
+            {loggedUser?.user?.user?.username ? <p className='p-1 font-bold'> {loggedUser?.user?.user?.username}
+            </p> :  <button onClick={()=>document.getElementById('my_modal_3').showModal()} className='bg-purple-800 px-4 py-[5px] rounded text-xs text-white'>Sign in</button>}
             <dialog id="my_modal_3" className="modal">
               <div className="modal-box p-10">
                 <form method="dialog">
@@ -278,17 +277,20 @@ const handleSignUp = async(e) => {
                 <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                 <div className="pr-5 bg-white min-h-full md:w-[370px] w-[300px]">
                   {/* Sidebar content here */}
-                  <div className='border-b-2 md:px-4 px-2 md:py-[22px] py-3'>
-                    <p className='font-bold md:text-2xl text-lg'>Hey!</p>
+                  <div className='border-b-2 md:px-4 px-2 md:py-[22px] py-3 grid grid-cols-3'>
+                    <p className='font-bold md:text-2xl text-lg col-span-1'>Hey!</p>
+                    <div className='col-span-2 font-bold'> 
+                     {loggedUser?.user?.user?.username ? <p className='text-end'>{loggedUser?.user?.user?.username}</p> :  <p className='text-sm text-start'>Sign in for the best experience</p>}
+                    </div>
                   </div>
                   <div className='shadow-md border-b md:px-4 px-2 py-3 flex items-center md:gap-3 gap-2 z-20'>
                     <div><img src="/images/rewards_login.avif" className='md:w-16' alt="" /></div>
                     <div>
                       <p className='md:text-sm text-xs text-gray-500'>Unlock special offers & great benefits</p>
                     </div>
-                    <button className='text-xs hover:text-purple-800 border text-red-500 md:px-4 p-2 rounded-lg md:py-2.5 hover:border-purple-800 border-red-500 transition-colors duration-500 font-semibold'>
+                   {loggedUser?.user?.user?.username ? <p>{""}</p> :  <button className='text-xs hover:text-purple-800 border text-red-500 md:px-4 p-2 rounded-lg md:py-2.5 hover:border-purple-800 border-red-500 transition-colors duration-500 font-semibold'>
                       Login/Register
-                    </button>
+                    </button>}
                   </div>
                   <div className=' z-10 border-b md:pl-4 pl-3 md:py-5 py-4 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                     <div className='flex items-center md:gap-4 gap-3'>
