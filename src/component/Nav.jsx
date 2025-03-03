@@ -51,7 +51,7 @@ const handleLogin = async(e) => {
   dispatch(logUser(signIn)).then((action) => {
     if (action.type === "user/logUser/fulfilled") {
       // navigate("/dashboard");
-      console.log("Login successful");
+      alert("Login successful");
     }
   });
 }
@@ -172,7 +172,7 @@ const handleSignUp = async(e) => {
                   {/* <div className="mb-10 relative">{errorLogin && <span className="text-red-500 text-sm absolute">{errorLogin}</span>}</div> */}
                   <form  onSubmit={handleLogin}>
                     <div className='mb-3'>
-                      <label className='block mb-1 text-[15px]'>EMAIL</label>
+                      <label className='block mb-1 text-[15px]'>EMAIL OR USERNAME</label>
                       <input type='text'
                       name='usernameOrEmail'
                         className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
