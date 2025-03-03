@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { Provider } from 'react-redux';
-import Store, { persistor } from './redux/store.jsx';
+import Store, { persistor } from './redux/Store.jsx';
 import { PersistGate } from 'redux-persist/integration/react';
 
 
