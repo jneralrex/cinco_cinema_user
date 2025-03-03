@@ -79,12 +79,12 @@ const handleSignUp = async(e) => {
             <input className='xl:w-[600px] lg:w-[400px] w-[300px] text-sm outline-none py-2' type="text" placeholder='Search for Movies, Events, Plays, Sports and Activities' />
           </div>
         </div>
-        <div className='flex items-center gap-5'>
+        <div className='flex items-center gap-4'>
           {/* location */}
           <div>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
             <button className='flex items-center lg:gap-2 gap-1' onClick={()=>document.getElementById('my_modal_4').showModal()}>
-              <p className='lg:text-[15px] text-[13px] font-semibold'>{location}</p>
+              <p className='lg:text-[15px] md:text-[13px] text-xs font-semibold'>{location}</p>
               <GoChevronDown />
             </button>
             <dialog id="my_modal_4" className="modal">
@@ -147,151 +147,179 @@ const handleSignUp = async(e) => {
               </div>
             </dialog>
           </div>
-          <div className='hidden'>
-            <div className='size-8 rounded-full border-2 flex items-end justify-center'>
-              <FaUserLarge className='size-[75%] text-gray-400 rounded-full' />
-            </div>
-            <div>
-              <p>Hi, Guest</p>
-            </div>
-          </div>
-          {/* sign up/in */}
-          <div>
-            {/* You can open the modal using document.getElementById('ID').showModal() method */}
-            {loggedUser?.user?.user?.username ? <p className='p-1 font-bold'> {loggedUser?.user?.user?.username}
-            </p> :  <button onClick={()=>document.getElementById('my_modal_3').showModal()} className='bg-purple-800 px-4 py-[5px] rounded text-xs text-white'>Sign in</button>}
-            <dialog id="my_modal_3" className="modal">
-              <div className="modal-box p-10">
-                <form method="dialog">
-                  {/* if there is a button in form, it will close the modal */}
-                  <button className="btn btn-sm btn-circle text-lg btn-ghost absolute right-2 top-2">✕</button>
-                </form>
-                <h3 className="font-bold text-xl text-center">Sign in</h3>
-                <div className={isLoginRegister ? 'hidden' : 'block'}>
-                  {/* <div className="mb-10 relative">{errorLogin && <span className="text-red-500 text-sm absolute">{errorLogin}</span>}</div> */}
-                  <form  onSubmit={handleLogin}>
-                    <div className='mb-3'>
-                      <label className='block mb-1 text-[15px]'>EMAIL OR USERNAME</label>
-                      <input type='text'
-                      name='usernameOrEmail'
-                        className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
-                        placeholder='you@awesome.com'
-                        onChange={handleSignInInputChange}
-                      />
-                    </div>
-                    <div className='mb-3'>
-                        <label className='block mb-1 text-[15px]'>PASSWORD</label>
-                        <input 
-                            type='password' 
-                            name='password'
-                            className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-4' 
-                            placeholder='supersecret'
-                            onChange={handleSignInInputChange}
-                        />
-                    </div>
-                    <button className='bg-black text-white w-full py-2 rounded'>Sign in</button>
-                  </form>
-                  <div className='flex items-center justify-between'>
-                      <p className='text-center text-sm mt-4 underline hover:no-underline'>Forgot password?</p>
-                      <p className='text-center text-sm mt-4'>Don't have an account? <span className='underline hover:no-underline cursor-pointer' onClick={loginRegister}>Join</span></p>
-                  </div>
+          {
+            loggedUser?.user?.user?.username ? (
+              <div className='flex items-center gap-1 md:gap-3'>
+                <div className='md:size-8 size-6 rounded-full border-2 flex items-end justify-center'>
+                  <FaUserLarge className='size-[75%] text-gray-400 rounded-full' />
                 </div>
-                <div className={isLoginRegister ? 'block' : 'hidden'}>
-                  {/* {error && <span className="text-red-500 text-sm">{error}</span>} */}
-                  {/* {adminRegError && <span className="text-red-500 text-sm">{adminRegError}</span>} */}
-                  <form onSubmit={handleSignUp}>
-                      <div className='mb-5'>
-                          <label className='block mb-1 text-[15px]'>USER NAME</label>
-                          <input 
-                              type='text' 
-                              name='username'
-                              className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
-                              placeholder='Jane Smith' 
-                              onChange={handleSignUpInputChange}
-                          />
-                      </div>
-                      <div className='mb-5'>
-                          <label className='block mb-1 text-[15px]'>EMAIL</label>
-                          <input 
-                              type='email' 
-                              name='email'
-                              className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
-                              placeholder='you@awesome.com' 
-                              onChange={handleSignUpInputChange}
-                          />
-                      </div>
-                      <div className='mb-5'>
-                          <label className='block mb-1 text-[15px]'>PHONE</label>
-                          <input 
-                              type='text' 
-                              name='phoneNumber'
-                              className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
-                              placeholder='123456...' 
-                              onChange={handleSignUpInputChange}
-                          />
-                      </div>
-                      <div className='mb-5'>
-                          <label className='block mb-1 text-[15px]'>PASSWORD</label>
-                          <input 
-                              type='password' 
-                              name='password'   
-                              className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-4' 
-                              placeholder='supersecret'
-                              onChange={handleSignUpInputChange}
-                          />
-                      </div>
-                      <button className='bg-black text-white w-full py-2 rounded'>Sign up</button>
-                  </form>
-                  <p className='text-center text-sm mt-4'>Already have an account? <span className='underline hover:no-underline cursor-pointer' onClick={loginRegister}>Sign in</span></p>
+                <div>
+                  <p className='md:text-sm text-xs'>Hi,&nbsp;{loggedUser?.user?.user?.username}</p>
                 </div>
-                <div className='flex items-center gap-5 my-4'>
-                  <div className='h-[0.5px] bg-black/30 w-full' ></div>
-                  <p className='font-semibold'>or</p>
-                  <div className='h-[0.5px] bg-black/30 w-full' ></div>
-                </div>
-                <div className='w-full py-2 rounded-[3px] cursor-pointer mb-2 border flex items-center justify-center gap-2 bg-white hover:border-blue-500'>
-                  <AiFillFacebook className='text-blue-500 text-2xl' />
-                  <p>Sign in with Facebook</p>
-                </div>
-                <div className='w-full py-2 rounded-[3px] cursor-pointer mb-2 border flex items-center justify-center gap-2 bg-white hover:border-blue-500'>
-                  <FcGoogle className='text-2xl' />
-                  <p>Sign in with Google</p>
-                </div>
-                <div className='w-full py-2 rounded-[3px] cursor-pointer mb-2 border flex items-center justify-center gap-2 bg-white hover:border-blue-500'>
-                  <FaApple className='text-2xl' />
-                  <p>Sign in with Apple</p>
-                </div>
-                <p className='text-black/50 text-[13px] mt-10 text-center'>By continuing, you agree to our Privacy Policy and Terms of Use</p>
               </div>
-            </dialog>
-          </div>
+            ):(
+              <div>
+                {/* sign up/in */}
+                <div>
+                  {/* You can open the modal using document.getElementById('ID').showModal() method */}
+                  <button 
+                    onClick={()=>document.getElementById('my_modal_3').showModal()} 
+                    className='bg-purple-800 px-4 py-[5px] rounded text-xs text-white'
+                  >
+                    Sign in
+                  </button>
+                  <dialog id="my_modal_3" className="modal">
+                    <div className="modal-box p-10">
+                      <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="btn btn-sm btn-circle text-lg btn-ghost absolute right-2 top-2">✕</button>
+                      </form>
+                      <h3 className="font-bold text-xl text-center">Sign in</h3>
+                      {/* sign in */}
+                      <div className={isLoginRegister ? 'hidden' : 'block'}>
+                        {/* <div className="mb-10 relative">{errorLogin && <span className="text-red-500 text-sm absolute">{errorLogin}</span>}</div> */}
+                        <form  onSubmit={handleLogin}>
+                          <div className='mb-3'>
+                            <label className='block mb-1 text-[15px]'>EMAIL OR USERNAME</label>
+                            <input type='text'
+                            name='usernameOrEmail'
+                              className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
+                              placeholder='you@awesome.com'
+                              onChange={handleSignInInputChange}
+                            />
+                          </div>
+                          <div className='mb-3'>
+                              <label className='block mb-1 text-[15px]'>PASSWORD</label>
+                              <input 
+                                  type='password' 
+                                  name='password'
+                                  className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-4' 
+                                  placeholder='supersecret'
+                                  onChange={handleSignInInputChange}
+                              />
+                          </div>
+                          <button className='bg-black text-white w-full py-2 rounded'>Sign in</button>
+                        </form>
+                        <div className='flex items-center justify-between'>
+                            <p className='text-center text-sm mt-4 underline hover:no-underline'>Forgot password?</p>
+                            <p className='text-center text-sm mt-4'>Don't have an account? <span className='underline hover:no-underline cursor-pointer' onClick={loginRegister}>Join</span></p>
+                        </div>
+                      </div>
+                      {/* sign up */}
+                      <div className={isLoginRegister ? 'block' : 'hidden'}>
+                        {/* {error && <span className="text-red-500 text-sm">{error}</span>} */}
+                        {/* {adminRegError && <span className="text-red-500 text-sm">{adminRegError}</span>} */}
+                        <form onSubmit={handleSignUp}>
+                            <div className='mb-5'>
+                                <label className='block mb-1 text-[15px]'>USER NAME</label>
+                                <input 
+                                    type='text' 
+                                    name='username'
+                                    className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
+                                    placeholder='Jane Smith' 
+                                    onChange={handleSignUpInputChange}
+                                />
+                            </div>
+                            <div className='mb-5'>
+                                <label className='block mb-1 text-[15px]'>EMAIL</label>
+                                <input 
+                                    type='email' 
+                                    name='email'
+                                    className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
+                                    placeholder='you@awesome.com' 
+                                    onChange={handleSignUpInputChange}
+                                />
+                            </div>
+                            <div className='mb-5'>
+                                <label className='block mb-1 text-[15px]'>PHONE</label>
+                                <input 
+                                    type='text' 
+                                    name='phoneNumber'
+                                    className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
+                                    placeholder='123456...' 
+                                    onChange={handleSignUpInputChange}
+                                />
+                            </div>
+                            <div className='mb-5'>
+                                <label className='block mb-1 text-[15px]'>PASSWORD</label>
+                                <input 
+                                    type='password' 
+                                    name='password'   
+                                    className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-4' 
+                                    placeholder='supersecret'
+                                    onChange={handleSignUpInputChange}
+                                />
+                            </div>
+                            <button className='bg-black text-white w-full py-2 rounded'>Sign up</button>
+                        </form>
+                        <p className='text-center text-sm mt-4'>Already have an account? <span className='underline hover:no-underline cursor-pointer' onClick={loginRegister}>Sign in</span></p>
+                      </div>
+                      <div className='flex items-center gap-5 my-4'>
+                        <div className='h-[0.5px] bg-black/30 w-full' ></div>
+                        <p className='font-semibold'>or</p>
+                        <div className='h-[0.5px] bg-black/30 w-full' ></div>
+                      </div>
+                      <div className='w-full py-2 rounded-[3px] cursor-pointer mb-2 border flex items-center justify-center gap-2 bg-white hover:border-blue-500'>
+                        <AiFillFacebook className='text-blue-500 text-2xl' />
+                        <p>Sign in with Facebook</p>
+                      </div>
+                      <div className='w-full py-2 rounded-[3px] cursor-pointer mb-2 border flex items-center justify-center gap-2 bg-white hover:border-blue-500'>
+                        <FcGoogle className='text-2xl' />
+                        <p>Sign in with Google</p>
+                      </div>
+                      <div className='w-full py-2 rounded-[3px] cursor-pointer mb-2 border flex items-center justify-center gap-2 bg-white hover:border-blue-500'>
+                        <FaApple className='text-2xl' />
+                        <p>Sign in with Apple</p>
+                      </div>
+                      <p className='text-black/50 text-[13px] mt-10 text-center'>By continuing, you agree to our Privacy Policy and Terms of Use</p>
+                    </div>
+                  </dialog>
+                </div>
+              </div>
+            )
+          }
           {/* burger menu */}
           <div>
             <div className="drawer drawer-end">
               <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
               <div className="drawer-content">
                 {/* Page content here */}
-                <label htmlFor="my-drawer-4" className='cursor-pointer'><RxHamburgerMenu className='text-2xl' /></label>
+                <label htmlFor="my-drawer-4" className='cursor-pointer'><RxHamburgerMenu className='md:text-2xl text-xl' /></label>
               </div>
               <div className="drawer-side">
                 <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                <div className="pr-5 bg-white min-h-full md:w-[370px] w-[300px]">
+                <div className="pr-5 bg-white min-h-full md:w-[370px] w-[300px] relative">
                   {/* Sidebar content here */}
-                  <div className='border-b-2 md:px-4 px-2 md:py-[22px] py-3 grid grid-cols-3'>
-                    <p className='font-bold md:text-2xl text-lg col-span-1'>Hey!</p>
-                    <div className='col-span-2 font-bold'> 
-                     {loggedUser?.user?.user?.username ? <p className='text-end'>{loggedUser?.user?.user?.username}</p> :  <p className='text-sm text-start'>Sign in for the best experience</p>}
-                    </div>
-                  </div>
-                  <div className='shadow-md border-b md:px-4 px-2 py-3 flex items-center md:gap-3 gap-2 z-20'>
-                    <div><img src="/images/rewards_login.avif" className='md:w-16' alt="" /></div>
+                  <div className='border-b-2 md:px-4 px-2 md:py-[16px] py-[10px] flex justify-between items-center'>
                     <div>
-                      <p className='md:text-sm text-xs text-gray-500'>Unlock special offers & great benefits</p>
+                      <p className='font-bold md:text-xl leading-tight'>Hey!</p>
+                      { loggedUser ? <Link to={'/profile-page'} className='flex items-center gap-1 cursor-pointer text-xs hover:underline hover:text-purple-800'>Edit Profile <RxDoubleArrowRight className='' /></Link> : null}
                     </div>
-                   {loggedUser?.user?.user?.username ? <p>{""}</p> :  <button className='text-xs hover:text-purple-800 border text-red-500 md:px-4 p-2 rounded-lg md:py-2.5 hover:border-purple-800 border-red-500 transition-colors duration-500 font-semibold'>
-                      Login/Register
-                    </button>}
+                    {
+                      loggedUser?.user?.user?.username ? (
+                        <div className='md:size-10 size-8 rounded-full border-2 flex items-end justify-center'>
+                          <FaUserLarge className='size-[75%] text-gray-400 rounded-full' />
+                        </div>
+                      ):(
+                        null
+                      )
+                    }
                   </div>
+                  {
+                    loggedUser?.user?.user?.username ? (
+                      null
+                    ) : (
+                      <div className='shadow-md border-b md:px-4 px-2 py-3 flex items-center md:gap-3 gap-2 z-20'>
+                        <div><img src="/images/rewards_login.avif" className='md:w-16' alt="" /></div>
+                        <div>
+                          <p className='md:text-sm text-xs text-gray-500'>Unlock special offers & great benefits</p>
+                        </div>
+                        <button className='text-xs hover:text-purple-800 border text-red-500 md:px-4 p-2 rounded-lg md:py-2.5 hover:border-purple-800 border-red-500 transition-colors duration-500 font-semibold'>
+                          Login/Register
+                        </button>
+                      </div>
+                    )
+                  }
                   <div className=' z-10 border-b md:pl-4 pl-3 md:py-5 py-4 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                     <div className='flex items-center md:gap-4 gap-3'>
                       <VscBell className='md:text-lg' />
@@ -299,7 +327,7 @@ const handleSignUp = async(e) => {
                     </div>
                     <RxDoubleArrowRight className='' />
                   </div>
-                  <div className='text-gray-400 border-b md:pl-4 pl-3 py-2 md:py-4 flex justify-between items-center cursor-not-allowed'>
+                  <div className={loggedUser?.user?.user?.username ? 'border-b md:pl-4 pl-3 py-2 md:py-4 flex justify-between items-center' : 'text-gray-400 border-b md:pl-4 pl-3 py-2 md:py-4 flex justify-between items-center cursor-not-allowed'}>
                     <div className='flex items-center md:gap-4 gap-3'>
                       <TfiShoppingCartFull className='md:text-lg' />
                       <div>
@@ -309,7 +337,7 @@ const handleSignUp = async(e) => {
                     </div>
                     <AiOutlineLock className='md:text-lg' />
                   </div>
-                  <div className='text-gray-400 border-b md:pl-4 pl-3 md:py-4 py-2 flex justify-between items-center cursor-not-allowed'>
+                  <div className={loggedUser?.user?.user?.username ? 'border-b md:pl-4 pl-3 py-2 md:py-4 flex justify-between items-center' : 'text-gray-400 border-b md:pl-4 pl-3 py-2 md:py-4 flex justify-between items-center cursor-not-allowed'}>
                     <div className='flex items-center md:gap-4 gap-3'>
                       <LuTvMinimalPlay className='md:text-lg' />
                       <div>
@@ -339,7 +367,7 @@ const handleSignUp = async(e) => {
                     </div>
                     <RxDoubleArrowRight className='' />
                   </div>
-                  <div className='text-gray-400 border-b md:pl-4 pl-3 md:py-4 py-2 flex justify-between items-center cursor-not-allowed'>
+                  <div className={loggedUser?.user?.user?.username ? 'border-b md:pl-4 pl-3 py-2 md:py-4 flex justify-between items-center' : 'text-gray-400 border-b md:pl-4 pl-3 py-2 md:py-4 flex justify-between items-center cursor-not-allowed'}>
                     <div className='flex items-center md:gap-4 gap-3'>
                       <AiOutlineSetting className='md:text-lg' />
                       <div>
@@ -358,6 +386,9 @@ const handleSignUp = async(e) => {
                       </div>
                     </div>
                     <RxDoubleArrowRight className='' />
+                  </div>
+                  <div className='absolute bottom-0 right-2 left-0 border shadow-xl p-3'>
+                    <button className='border text-red-500 border-red-500 py-1 w-full'>Sign out</button>
                   </div>
                 </div>
               </div>
