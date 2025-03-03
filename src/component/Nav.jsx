@@ -18,8 +18,16 @@ import { AiFillFacebook } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import Footer from './Footer';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { logUser } from '../redux/slices/UserSlice';
 
 const Nav = () => {
+  const dispatch = useDispatch();
+  const  loggedUser = useSelector((state) => state.user);
+  const [signIn, setSignIn] = useState({usernameOrEmail:"",  password:""})
+  const [signUp, setSignUp] = useState({username:"", email:"", phoneNumber:"", password:""})
+
   const [location, setLocation]=useState('Pick your location')
   const handleClick = (value) => {
     setLocation(value)
@@ -29,6 +37,36 @@ const Nav = () => {
   const loginRegister = ()=>{
       setIsLoginRegister(!isLoginRegister)
   }
+const handleSignInInputChange = (e) => {
+  const { name, value } = e.target;
+  setSignIn((prev) => ({ ...prev, [name]: value }));
+}
+
+const handleLogin = async(e) => {
+  e.preventDefault();
+  if (!signIn.usernameOrEmail || !signIn.password) {
+    alert("Fields cannot be empty");
+    return;
+  }
+  dispatch(logUser(signIn)).then((action) => {
+    if (action.type === "user/logUser/fulfilled") {
+      // navigate("/dashboard");
+      console.log("Login successful");
+    }
+  });
+}
+
+const handleSignUpInputChange = (e) => {
+  const { name, value } = e.target;
+  setSignUp((prev) => ({ ...prev, [name]: value }));
+}
+
+const handleSignUp = async(e) => {
+  e.preventDefault();
+  const res = await axios.post(`${import.meta.env.VITE_BASE_URL}auth/signup`, signUp)
+  console.log(res)
+}
+
   return (
     <div>
       <nav className=' fixed top-0 left-0 right-0 z-50 bg-white shadow shadow-purple-800 flex items-center justify-between xl:px-36 lg:px-[50px] px-5 py-2'>
@@ -120,6 +158,8 @@ const Nav = () => {
           {/* sign up/in */}
           <div>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
+            {loggedUser?.user?.user?.username}
+
             <button onClick={()=>document.getElementById('my_modal_3').showModal()} className='bg-purple-800 px-4 py-[5px] rounded text-xs text-white'>Sign in</button>
             <dialog id="my_modal_3" className="modal">
               <div className="modal-box p-10">
@@ -130,20 +170,24 @@ const Nav = () => {
                 <h3 className="font-bold text-xl text-center">Sign in</h3>
                 <div className={isLoginRegister ? 'hidden' : 'block'}>
                   {/* <div className="mb-10 relative">{errorLogin && <span className="text-red-500 text-sm absolute">{errorLogin}</span>}</div> */}
-                  <form >
+                  <form  onSubmit={handleLogin}>
                     <div className='mb-3'>
                       <label className='block mb-1 text-[15px]'>EMAIL</label>
-                      <input type='email'
+                      <input type='text'
+                      name='usernameOrEmail'
                         className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
                         placeholder='you@awesome.com'
+                        onChange={handleSignInInputChange}
                       />
                     </div>
                     <div className='mb-3'>
                         <label className='block mb-1 text-[15px]'>PASSWORD</label>
                         <input 
                             type='password' 
+                            name='password'
                             className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-4' 
                             placeholder='supersecret'
+                            onChange={handleSignInInputChange}
                         />
                     </div>
                     <button className='bg-black text-white w-full py-2 rounded'>Sign in</button>
@@ -156,37 +200,45 @@ const Nav = () => {
                 <div className={isLoginRegister ? 'block' : 'hidden'}>
                   {/* {error && <span className="text-red-500 text-sm">{error}</span>} */}
                   {/* {adminRegError && <span className="text-red-500 text-sm">{adminRegError}</span>} */}
-                  <form >
+                  <form onSubmit={handleSignUp}>
                       <div className='mb-5'>
-                          <label className='block mb-1 text-[15px]'>NAME</label>
+                          <label className='block mb-1 text-[15px]'>USER NAME</label>
                           <input 
                               type='text' 
+                              name='username'
                               className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
                               placeholder='Jane Smith' 
+                              onChange={handleSignUpInputChange}
                           />
                       </div>
                       <div className='mb-5'>
                           <label className='block mb-1 text-[15px]'>EMAIL</label>
                           <input 
                               type='email' 
+                              name='email'
                               className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
                               placeholder='you@awesome.com' 
+                              onChange={handleSignUpInputChange}
                           />
                       </div>
                       <div className='mb-5'>
                           <label className='block mb-1 text-[15px]'>PHONE</label>
                           <input 
-                              type='email' 
+                              type='text' 
+                              name='phoneNumber'
                               className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-3' 
                               placeholder='123456...' 
+                              onChange={handleSignUpInputChange}
                           />
                       </div>
                       <div className='mb-5'>
                           <label className='block mb-1 text-[15px]'>PASSWORD</label>
                           <input 
-                              type='password'    
+                              type='password' 
+                              name='password'   
                               className='border rounded-[3px] w-full text-[16.5px] outline-none border-black/60 py-2 px-4' 
                               placeholder='supersecret'
+                              onChange={handleSignUpInputChange}
                           />
                       </div>
                       <button className='bg-black text-white w-full py-2 rounded'>Sign up</button>

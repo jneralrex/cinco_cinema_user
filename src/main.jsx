@@ -8,10 +8,17 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
+import { Provider } from 'react-redux';
+import Store, { persistor } from './redux/store.jsx';
+import { PersistGate } from 'redux-persist/integration/react';
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
+    <Provider store={Store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
+  </StrictMode>  
 )
