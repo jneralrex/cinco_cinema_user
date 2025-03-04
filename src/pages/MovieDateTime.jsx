@@ -33,8 +33,8 @@ const MovieDateTime = () => {
   // Fetch show dates from API
   const getShowDates = async () => {
     try {
-      // const resp = await axios.get(`${import.meta.env.VITE_BASE_URL}airingdate/${id}`);
-      const resp = await axios.get(`http://localhost:5000/api/v1/airingdate/${id}`);
+      const resp = await axios.get(`${import.meta.env.VITE_BASE_URL}airingdate/${id}`);
+      // const resp = await axios.get(`http://localhost:5000/api/v1/airingdate/${id}`);
       // console.log(resp.data.data)
       if (resp.status === 200) {
         const filteredDates = resp.data.data
