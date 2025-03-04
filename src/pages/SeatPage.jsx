@@ -1,15 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SeatCountModal from '../pages/SeatCountModal';
 import TermsModal from '../pages/TermsModal';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+import Loader from '../component/Loader';
 
 const SeatPage = () => {
+  const params = useParams();
+  const showtime_id = params.showtime_id;
+  const movie_id = params.movie_id;
+  // console.log(`${showtime_id}: ${movie_id}`);
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(true);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [maxSeats, setMaxSeats] = useState(0);
   const [showSeating, setShowSeating] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
+  
+  const [time_details, setTimeDetails] = useState({});
+  const [movie_info, setMovieInfo] = useState({});
+  const [loading, setLoading] = useState(true);
+  const theater = movie_info?.show_times?.find(theater => theater._id === showtime_id);
+  // console.log(theater);
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { weekday: "long", day: "numeric", month: "short" };
+    return date.toLocaleDateString("en-GB", options);
+  }
 
   const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
   
@@ -24,19 +41,27 @@ const SeatPage = () => {
     'C-4': 'sold',
   };
 
-  const PRICE_PER_SEAT = 540;
+  const PRICE_PER_SEAT = time_details?.price;
 
   const totalAmount = selectedSeats.length * PRICE_PER_SEAT;
 
+  const theaterLocation = theater?.theatre_id?.theatreLocation?.location
+    .map((loc) =>
+      loc.cities.map((city) =>
+        `${city.street} ${city.city} ${loc.state}`
+      ).join(", ") // Join multiple cities with a comma
+    ).join("; "); // Join multiple locations with a semicolon
+
   const movieDetails = {
-    title: 'Mufasa: The Lion King',
+    title: movie_info?.movie_id?.title || "N/A",
     language: 'English',
     format: 'INSIGNIA',
-    theater: 'INOX: Megaplex, Inorbit Mall, Malad',
-    date: '29 Dec',
-    time: '10:30 PM',
-    screen: 'INSIGNIA'
+    theater: `${theater?.theatre_id?.theatreName} ${theaterLocation}`,
+    date: formatDate(movie_info?.date),
+    time: time_details?.time || "N/A",
+    screen: `${time_details?.screen_id?.screenName || ""} ${time_details?.screen_id?.screenType || ""}`.trim()
   };
+
 
   const handleSeatClick = (seatId) => {
     if (seatStatus[seatId] === 'sold') return;
@@ -78,15 +103,55 @@ const SeatPage = () => {
     });
   };
 
+  const getShowDates = async () => {
+    try {
+      const resp = await axios.get(`${import.meta.env.VITE_BASE_URL}airingdate/${movie_id}`);
+      // const resp = await axios.get(`http://localhost:5000/api/v1/airingdate/${movie_id}`);
+      // console.log(resp.data.data);
+      if(resp.status === 200){
+        resp?.data?.data?.map((date)=>{
+          date.show_times.find((times)=> times._id === showtime_id)
+          ?.times?.map((time2)=>{
+            // console.log(time2);
+            setTimeDetails(time2)
+          })
+          // console.log(`date detail: ${date.show_times}`)
+        })
+        const matchedDate = resp?.data?.data?.find(date => 
+          date.movie_id._id === movie_id && 
+          date.show_times.some(show => show._id === showtime_id)
+        );
+        
+        if (matchedDate) {
+          // console.log("Matched Date:", matchedDate);
+          setMovieInfo( matchedDate );
+        } else {
+          console.log("No matching movie and showtime found.");
+        }              
+      }
+    } catch (error) {
+      console.error("Error fetching showDates:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(()=>{
+    getShowDates()
+  },[]);
+
+  if(loading) return <div className="h-[100vh]"><Loader /></div>;
   if (!showSeating) {
     return (
       <SeatCountModal 
+        time_details={time_details}
+        loading={loading}
         isOpen={showModal} 
         onClose={() => setShowModal(false)}
         onSelectSeats={handleSelectSeats}
       />
     );
-  }
+  };
 
   return (
     <div className="lg:max-w-7xl  md:px-[100px] mt-14 md:mt-20 lg:mt-0 mx-auto p-5">
@@ -94,10 +159,10 @@ const SeatPage = () => {
       {/* Header */}
       <div className="flex justify-between items-center border-b border-gray-200 pb-4 mb-5">
         <div>
-          <h2 className="text-xl font-semibold">Mufasa: The Lion King</h2>
+          <h2 className="text-xl font-semibold">{movie_info?.movie_id?.title}</h2>
           <div className="text-xs lg:text-sm text-gray-600 block lg:flex items-center">
-            <p>INOX: Megaplex, Inorbit Mall, Malad</p> 
-            <p className='text-xs lg:text-sm'>| Today, 29 Dec, 10:30 PM</p>
+          <p>{movieDetails?.theater}</p>
+          <p className='text-xs lg:text-sm'>| {formatDate(movie_info?.date)}, {time_details?.time}</p>
           </div>
         </div>
 
@@ -114,7 +179,7 @@ const SeatPage = () => {
 
       {/* Price Info */}
       <div className="text-center text-gray-600 my-5">
-        <p>Rs. 1370 INSIGNIA</p>
+        <p>${time_details?.price} INSIGNIA</p>
       </div>
 
       {/* Seating Layout */}

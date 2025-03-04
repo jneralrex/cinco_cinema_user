@@ -30,7 +30,7 @@ const router = createBrowserRouter(
         <Route index element={<HomePage />} />
         <Route path="movie-detail/:id" element={<MovieDetail />} />
         <Route path="movie-date-time/:id" element={<MovieDateTime />} />
-        <Route path="seat-page" element={<SeatPage />} />
+        <Route path="seat-page/:showtime_id/:movie_id" element={<SeatPage />} />
         <Route path="about-page" element={<AboutPage />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="profile-page" element={<ProfilePage />} />
