@@ -1,8 +1,9 @@
 import React from 'react';
 import { IoMdClose } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
+import Loader from '../component/Loader';
 
-const SeatCountModal = ({ isOpen, onClose, onSelectSeats }) => {
+const SeatCountModal = ({ isOpen, onClose, onSelectSeats, time_details, loading }) => {
   const navigate = useNavigate()
   const [selectedCount, setSelectedCount] = React.useState(2);
   const seatNumbers = Array.from({ length: 10 }, (_, i) => i + 1);
@@ -14,6 +15,7 @@ const SeatCountModal = ({ isOpen, onClose, onSelectSeats }) => {
     navigate(-1);
   }
 
+  if(loading) return <div className="h-[100vh]"><Loader /></div>;
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-[400px] max-w-[90%] relative">
@@ -47,8 +49,8 @@ const SeatCountModal = ({ isOpen, onClose, onSelectSeats }) => {
 
           {/* Price Info */}
           <div className="mb-6">
-            <p className="text-center font-medium">3D CLUB</p>
-            <p className="text-center">Rs. 150</p>
+            <p className="text-center font-medium">{`${time_details?.screen_id?.screenName} ${time_details?.screen_id?.screenType}`}</p>
+            <p className="text-center">${time_details?.price}</p>
             <p className="text-green-500 text-sm">Available</p>
           </div>
 

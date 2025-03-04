@@ -54,7 +54,7 @@ const MovieDetail = () => {
                     </button>    
                    <div className='w-[28%] flex justify-end items-center'>
                         <div>
-                            <div className='h-[400px] relative rounded-t-lg'>
+                            <div className='h-[400px] w-[270px] relative rounded-t-lg'>
                                 <img className='size-full object-cover rounded-t-lg' src={movie.thumbnail? `${movie.thumbnail.url}`: null} alt="" />
                                 <Link to={movie.trailer? `${movie.trailer}`: null} target='blank' className='absolute xl:top-[200px] left-[100px] top-[230px] bg-black/80 rounded-full px-4 cursor-pointer'>
                                     <p className=' text-white flex items-center text-[13px] '><IoMdPlay/> Trailers</p>

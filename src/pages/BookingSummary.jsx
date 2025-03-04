@@ -241,9 +241,9 @@ const BookingSummary = () => {
                   <p className="text-sm">
                     {selectedSeats.join(',')} ({selectedSeats.length} Tickets)
                   </p>
-                  <p className="text-xs text-gray-500">SCREEN 4</p>
+                  <p className="text-xs text-gray-500">{movieDetails?.screen}</p>
                 </div>
-                <p className="text-sm">Rs. {basePrice.toFixed(2)}</p>
+                <p className="text-sm">${basePrice.toFixed(2)}</p>
               </div>
 
               {/* Convenience Fee */}
@@ -251,13 +251,13 @@ const BookingSummary = () => {
                 <div className="flex items-center gap-1">
                   <span className="text-sm">Convenience fees</span>
                 </div>
-                <p className="text-sm">Rs. {convenienceFee.toFixed(2)}</p>
+                <p className="text-sm">${convenienceFee.toFixed(2)}</p>
               </div>
 
               {/* Sub Total */}
               <div className="flex justify-between items-center pt-2 border-t">
                 <span className="text-sm">Sub total</span>
-                <span className="text-sm">Rs. {subTotal.toFixed(2)}</span>
+                <span className="text-sm">${subTotal.toFixed(2)}</span>
               </div>
 
               {/* Donation Section */}
@@ -276,7 +276,7 @@ const BookingSummary = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm">Rs. 0</div>
+                    <div className="text-sm">$. 0</div>
                     <div className="text-[10px] text-pink-500 cursor-pointer">Add Rs. 4</div>
                   </div>
                 </div>
@@ -290,7 +290,7 @@ const BookingSummary = () => {
               {/* Amount Payable */}
               <div className="bg-yellow-50 p-3 rounded flex justify-between items-center">
                 <span className="text-sm font-medium">Amount Payable</span>
-                <span className="text-sm font-medium">Rs. {totalPayable.toFixed(2)}</span>
+                <span className="text-sm font-medium">${totalPayable.toFixed(2)}</span>
               </div>
 
               {/* Ticket Type Selection */}
@@ -343,7 +343,7 @@ const BookingSummary = () => {
                   onClick={handleProceed}
                   className="w-full bg-purple-800 text-white py-3 rounded flex justify-between items-center px-4"
                 >
-                  <span>TOTAL: Rs {totalPayable.toFixed(2)}</span>
+                  <span>TOTAL: ${totalPayable.toFixed(2)}</span>
                   <span>Proceed</span>
                 </button>
 

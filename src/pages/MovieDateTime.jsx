@@ -33,8 +33,9 @@ const MovieDateTime = () => {
   // Fetch show dates from API
   const getShowDates = async () => {
     try {
-      const resp = await axios.get(`${import.meta.env.VITE_BASE_URL}airingdate/${id}`);
-      // console.log(resp)
+      // const resp = await axios.get(`${import.meta.env.VITE_BASE_URL}airingdate/${id}`);
+      const resp = await axios.get(`http://localhost:5000/api/v1/airingdate/${id}`);
+      // console.log(resp.data.data)
       if (resp.status === 200) {
         const filteredDates = resp.data.data
         setMovie(resp.data.movie);
@@ -162,9 +163,13 @@ const MovieDateTime = () => {
                           <IoMdHeartEmpty className="lg:text-lg text-black/40" />
                         </div>
                         <div className="lg:hidden flex w-full justify-between lg:gap-[50px] items-center">
-                          <p className="text-sm font-semibold mb-4">
-                            {ttimes.theatre_id.theatreName}
-                          </p>
+                          <div className="text-sm font-semibold mb-4">
+                            {ttimes.theatre_id.theatreName} {ttimes?.theatre_id?.theatreLocation.location.map((loc)=>
+                              loc.cities.map((city)=>(
+                                <span key={city._id}>{`${city.street} ${city.city} ${loc.state}`}</span>
+                              ))
+                            )}
+                          </div>
                           <div className="flex gap-1 items-center text-gray-400 mt-[-14px]">
                             <MdInfoOutline />
                             <p className="text-[12px]">INFO</p>
@@ -198,7 +203,7 @@ const MovieDateTime = () => {
                       <div className="flex gap-4 mt-2">
                         {
                           ttimes?.times?.map(({ _id, time, screen_id, price })=>(
-                            <Link key={_id} to="/seat-page" className="dropdown dropdown-hover dropdown-top dropdown-end">
+                            <Link key={_id} to={`/seat-page/${ttimes._id}/${id}`} className="dropdown dropdown-hover dropdown-top dropdown-end">
                               <div tabIndex={0} role="button" className="border border-gray-400 rounded text-[11px] lg:py-1 py-0 lg:px-5 px-3">
                                 <p className="text-green-400">{formatTime(time)}</p>
                                 <p className="text-gray-400">{screen_id ? `${screen_id.screenName} ${screen_id.screenType}` : "Unknown Screen"}</p>

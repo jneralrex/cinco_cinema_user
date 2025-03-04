@@ -269,7 +269,7 @@ const Checkout = () => {
             <div className="pt-3 border-t border-dashed">
               <div className="flex justify-between text-sm">
                 <span>Sub&nbsp;Total</span>
-                <span>Rs.&nbsp;{Number(basePrice).toFixed(2)}</span>
+                <span>${Number(basePrice).toFixed(2)}</span>
               </div>
               <div className="flex justify-between items-center mt-2">
                 <div className="flex flex-wrap items-center gap-1">
@@ -279,7 +279,7 @@ const Checkout = () => {
                   </span>
                 </div>
                 <span className="text-sm">
-                  Rs.&nbsp;{Number(convenienceFee).toFixed(2)}
+                  ${Number(convenienceFee).toFixed(2)}
                 </span>
               </div>
             </div>
@@ -300,7 +300,7 @@ const Checkout = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm">Rs. 0</div>
+                    <div className="text-sm">$0</div>
                     <div className="text-[10px] text-pink-500 cursor-pointer">
                       Add Rs. {selectedSeats.length}
                     </div>
@@ -311,7 +311,7 @@ const Checkout = () => {
               {/* Amount Payable */}
               <div className="bg-yellow-50 p-3 rounded flex justify-between items-center">
                 <span className="text-sm font-medium">Amount Payable</span>
-                <span className="text-sm font-medium">Rs. {Number(totalPayable).toFixed(2)}</span>
+                <span className="text-sm font-medium">${Number(totalPayable).toFixed(2)}</span>
               </div>
 
         
