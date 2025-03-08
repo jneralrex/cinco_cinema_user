@@ -11,7 +11,7 @@ export const logUser = createAsyncThunk(
   'user/logUser',
   async (credentials, { rejectWithValue }) => {
     try {
-      const res = await axios.post(`${import.meta.env.VITE_BASE_URL}auth/signin`, credentials,{ withCredentials: true });
+      const res = await Api.post(`${import.meta.env.VITE_BASE_URL}auth/signin`, credentials,{ withCredentials: true });
       return res.data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || error.message);
@@ -23,7 +23,7 @@ export const signUpUser = createAsyncThunk(
   'user/signUpUser',
   async (credentials, { rejectWithValue }) => {
     try {
-        const res = await axios.post(`${import.meta.env.VITE_BASE_URL}auth/signup`, credentials,{ withCredentials: true });
+        const res = await Api.post(`auth/signup`, credentials,{ withCredentials: true });
       return res.data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || error.message);
@@ -35,7 +35,7 @@ export const logOut = createAsyncThunk(
   'user/logOut',
   async (_, { rejectWithValue }) => {
     try {
-        const res = await axios.post(`${import.meta.env.VITE_BASE_URL}auth/signout`, { withCredentials: true });
+        const res = await Api.post(`auth/signout`, { withCredentials: true });
       return res.data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || error.message);

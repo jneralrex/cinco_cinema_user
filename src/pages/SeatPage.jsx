@@ -20,8 +20,8 @@ const SeatPage = () => {
   const [time_details, setTimeDetails] = useState({});
   const [movie_info, setMovieInfo] = useState({});
   const [loading, setLoading] = useState(true);
+
   const theater = movie_info?.show_times?.find(theater => theater._id === showtime_id);
-  // console.log(theater);
   function formatDate(dateString) {
     const date = new Date(dateString);
     const options = { weekday: "long", day: "numeric", month: "short" };
