@@ -35,7 +35,7 @@ export const logOut = createAsyncThunk(
   'user/logOut',
   async (_, { rejectWithValue }) => {
     try {
-        const res = await Api.post(`auth/signout`, { withCredentials: true });
+        const res = await Api.post(`auth/signout`, null, { withCredentials: true });
       return res.data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || error.message);
