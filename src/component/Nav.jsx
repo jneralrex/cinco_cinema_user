@@ -71,7 +71,6 @@ const Nav = () => {
       `${import.meta.env.VITE_BASE_URL}auth/signup`,
       signUp
     );
-    console.log(res);
   };
 
   const handleLogout = async (e) => {
@@ -96,7 +95,7 @@ const Nav = () => {
           <div className="hidden border md:flex items-center gap-2 px-2">
             <IoSearchOutline className="text-gray-500" />
             <input
-              className="xl:w-[600px] lg:w-[400px] w-[300px] text-sm outline-none py-2"
+              className="xl:w-[500px] lg:w-[400px] w-[300px] text-sm outline-none py-2"
               type="text"
               placeholder="Search for Movies, Events, Plays, Sports and Activities"
             />
@@ -256,6 +255,11 @@ const Nav = () => {
               </div>
             </dialog>
           </div>
+          <Link to="https://cincocenimaadmin.onrender.com/">
+            <div  className="bg-purple-800 px-4 py-[5px] rounded text-xs text-white">
+            Create your Cinema
+            </div>
+          </Link>
           {loggedUser?.user?.user?.username ? (
             <div className="flex items-center gap-1 md:gap-3">
               <div className="md:size-8 size-6 rounded-full border-2 flex items-end justify-center">
