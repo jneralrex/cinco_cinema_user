@@ -458,7 +458,7 @@ const Nav = () => {
                           <p className="font-bold md:text-xl leading-tight">
                             Hey!
                           </p>
-                          {loggedUser ? (
+                          {loggedUser?.user?.user?.username ? (
                             <Link
                               to={"/profile-page"}
                               className="flex items-center gap-1 cursor-pointer text-xs hover:underline hover:text-purple-800"
@@ -472,7 +472,21 @@ const Nav = () => {
                           <FaUserLarge className="size-[75%] text-gray-400 rounded-full" />
                         </div>
                       </div>
-                    ) : null}
+                    ) : (
+                      <div>
+                        <p className="font-bold md:text-xl leading-tight">
+                          Hey!
+                        </p>
+                        {loggedUser?.user?.user?.username ? (
+                          <Link
+                            to={"/profile-page"}
+                            className="flex items-center gap-1 cursor-pointer text-xs hover:underline hover:text-purple-800"
+                          >
+                            Edit Profile <RxDoubleArrowRight className="" />
+                          </Link>
+                        ) : null}
+                      </div>
+                    )}
                   </div>
                   {loggedUser?.user?.user?.username ? null : (
                     <div className="shadow-md border-b md:px-4 px-2 py-3 flex items-center md:gap-3 gap-2 z-20">
